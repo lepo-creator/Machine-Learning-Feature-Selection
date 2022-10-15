@@ -1,0 +1,171 @@
+Quelle,Probennummer,Legierung,Prozessumfeld/-parameter,,,Scanstrategie,,,,,,,,,,,,,Pulvereigenschaften,,,,,,,,Bauteil QualitÑtskriterien,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Sonstiges,,
+,,,Prozessparameter,,,Scanstrategie,,,,,,,,,Konturparameter,,,,Particle Size Distribution,,,,,,Pulverchemie,,Mechanische Eigenschaften,,,,,,,PorositÑt [%],,,Rauhigkeit,,,,Bauteilchemie,,,,,,,,,,,,,,Schmelzpool,,,,,
+,,,Anlage,"Laserprofil [Gauss, Donut, etc.]",Laserdurchmesser [Êm],Laserleistung [W],Scan Speed [mm/s],HatchlÑnge [mm],Hatch distance [mm],Layerthickness [Êm],Pfadstrategie,LED [J/mm],ED [J/mm¸],Fokuslage [mm],Konturversatz [mm],FÅllschraffurversatz [mm],Konturscanspeed [mm/s],Konturleistung [W],Hersteller,Sonstiges,Particle size Distribution [Êm],d10 [Êm],d50 [Êm],d90 [Êm],Al [wt.%],Si [wt.%],E-Modul [MPa],Streckgrenze [MPa],Zugfestigkeit [MPa],Dehnung [%],HÑrte ,,Dichte [%],PorositÑt (Messung oben links)[%],PorositÑt (Messung unten rechts) [%],PorositÑt gesamt [%],Rautiefe 45¯ oben,Rautiefe 45¯ unten,Rautiefe 90¯,OberflÑchenrauhigkeit [Êm],Al [wt.%],Si [wt.%],Ni [wt.%],Fe [wt.%],Cu [wt.%],Mn [wt.%],Mg [wt.%],Ti [wt.%],Zn [wt.%],C [wt.%],Zr [wt.%],Mo [wt.%],Sn [wt.%],O [wt.%],x [Êm],y [Êm],z [Êm],Schutzgas,Heat treatment,Kommentare
+1,,"AlMg4,5Mn",AconityLAB,Gauss focused,85,500,750,22,1.3,,single track,0.666666667,#DIV/0!,,,,,,,,,,,,,,,,,,,HV10,,,,,,,,,,,,,,,,,,,,,,,,264,236,,,no preheating and no powder
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1,1,AlSi10Mg,AconityLAB,Gauss defocused,140,300,1000,1.3,0.1,50,Unidirectional,0.3,60,,,,,,,,,,,,,,,,,,,,97.3,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,2,AlSi10Mg,AconityLAB,Gauss defocused,140,300,1500,1.3,0.1,50,Unidirectional,0.2,40,,,,,,,,,,,,,,,,,,,,97.3,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,3,AlSi10Mg,AconityLAB,Gauss defocused,140,300,2000,1.3,0.1,50,Unidirectional,0.15,30,,,,,,,,,,,,,,,,,,,,94.5,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,4,AlSi10Mg,AconityLAB,Gauss defocused,140,400,1000,1.3,0.1,50,Unidirectional,0.4,80,,,,,,,,,,,,,,,,,,,,99.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,5,AlSi10Mg,AconityLAB,Gauss defocused,140,400,1500,1.3,0.1,50,Unidirectional,0.266666667,53.33333333,,,,,,,,,,,,,,,,,,,,99.7,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,6,AlSi10Mg,AconityLAB,Gauss defocused,140,400,2000,1.3,0.1,50,Unidirectional,0.2,40,,,,,,,,,,,,,,,,,,,,99,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,7,AlSi10Mg,AconityLAB,Gauss defocused,140,500,1000,1.3,0.1,50,Unidirectional,0.5,100,,,,,,,,,,,,,,,,,,,,99.7,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,8,AlSi10Mg,AconityLAB,Gauss defocused,140,500,1500,1.3,0.1,50,Unidirectional,0.333333333,66.66666667,,,,,,,,,,,,,,,,,,,,99.9,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,9,AlSi10Mg,AconityLAB,Gauss defocused,140,500,2000,1.3,0.1,50,Unidirectional,0.25,50,,,,,,,,,,,,,,,,,,,,99.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,10,AlSi10Mg,AconityLAB,Gauss defocused,140,300,1000,1.3,0.15,50,Unidirectional,0.3,40,,,,,,,,,,,,,,,,,,,,99.2,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,11,AlSi10Mg,AconityLAB,Gauss defocused,140,300,1500,1.3,0.15,50,Unidirectional,0.2,26.66666667,,,,,,,,,,,,,,,,,,,,96.2,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,12,AlSi10Mg,AconityLAB,Gauss defocused,140,300,2000,1.3,0.15,50,Unidirectional,0.15,20,,,,,,,,,,,,,,,,,,,,85.4,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,13,AlSi10Mg,AconityLAB,Gauss defocused,140,400,1000,1.3,0.15,50,Unidirectional,0.4,53.33333333,,,,,,,,,,,,,,,,,,,,99.7,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,14,AlSi10Mg,AconityLAB,Gauss defocused,140,400,1500,1.3,0.15,50,Unidirectional,0.266666667,35.55555556,,,,,,,,,,,,,,,,,,,,99.3,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,15,AlSi10Mg,AconityLAB,Gauss defocused,140,400,2000,1.3,0.15,50,Unidirectional,0.2,26.66666667,,,,,,,,,,,,,,,,,,,,97,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,16,AlSi10Mg,AconityLAB,Gauss defocused,140,500,1000,1.3,0.15,50,Unidirectional,0.5,66.66666667,,,,,,,,,,,,,,,,,,,,99.6,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,17,AlSi10Mg,AconityLAB,Gauss defocused,140,500,1500,1.3,0.15,50,Unidirectional,0.333333333,44.44444444,,,,,,,,,,,,,,,,,,,,99.7,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,18,AlSi10Mg,AconityLAB,Gauss defocused,140,500,2000,1.3,0.15,50,Unidirectional,0.25,33.33333333,,,,,,,,,,,,,,,,,,,,99.7,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,19,AlSi10Mg,AconityLAB,Gauss defocused,140,300,1000,1.3,0.2,50,Unidirectional,0.3,30,,,,,,,,,,,,,,,,,,,,99.1,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,20,AlSi10Mg,AconityLAB,Gauss defocused,140,300,1500,1.3,0.2,50,Unidirectional,0.2,20,,,,,,,,,,,,,,,,,,,,87.3,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,21,AlSi10Mg,AconityLAB,Gauss defocused,140,300,2000,1.3,0.2,50,Unidirectional,0.15,15,,,,,,,,,,,,,,,,,,,,62.5,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,22,AlSi10Mg,AconityLAB,Gauss defocused,140,400,1000,1.3,0.2,50,Unidirectional,0.4,40,,,,,,,,,,,,,,,,,,,,99.7,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,23,AlSi10Mg,AconityLAB,Gauss defocused,140,400,1500,1.3,0.2,50,Unidirectional,0.266666667,26.66666667,,,,,,,,,,,,,,,,,,,,97.6,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,24,AlSi10Mg,AconityLAB,Gauss defocused,140,400,2000,1.3,0.2,50,Unidirectional,0.2,20,,,,,,,,,,,,,,,,,,,,89.2,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,25,AlSi10Mg,AconityLAB,Gauss defocused,140,500,1000,1.3,0.2,50,Unidirectional,0.5,50,,,,,,,,,,,,,,,,,,,,99.6,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,26,AlSi10Mg,AconityLAB,Gauss defocused,140,500,1500,1.3,0.2,50,Unidirectional,0.333333333,33.33333333,,,,,,,,,,,,,,,,,,,,99.5,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,27,AlSi10Mg,AconityLAB,Gauss defocused,140,500,2000,1.3,0.2,50,Unidirectional,0.25,25,,,,,,,,,,,,,,,,,,,,96.1,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,28,AlSi10Mg,AconityLAB,Gauss defocused,140,600,1000,1.3,0.1,50,Unidirectional,0.6,120,,,,,,,,,,,,,,,,,,,,98.3,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,29,AlSi10Mg,AconityLAB,Gauss defocused,140,600,1500,1.3,0.1,50,Unidirectional,0.4,80,,,,,,,,,,,,,,,,,,,,99.7,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,30,AlSi10Mg,AconityLAB,Gauss defocused,140,600,2000,1.3,0.1,50,Unidirectional,0.3,60,,,,,,,,,,,,,,,,,,,,99.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,31,AlSi10Mg,AconityLAB,Gauss defocused,140,700,1000,1.3,0.1,50,Unidirectional,0.7,140,,,,,,,,,,,,,,,,,,,,97.5,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,32,AlSi10Mg,AconityLAB,Gauss defocused,140,700,1500,1.3,0.1,50,Unidirectional,0.466666667,93.33333333,,,,,,,,,,,,,,,,,,,,99.5,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,33,AlSi10Mg,AconityLAB,Gauss defocused,140,700,2000,1.3,0.1,50,Unidirectional,0.35,70,,,,,,,,,,,,,,,,,,,,99.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,34,AlSi10Mg,AconityLAB,Gauss defocused,140,800,1000,1.3,0.1,50,Unidirectional,0.8,160,,,,,,,,,,,,,,,,,,,,95.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,35,AlSi10Mg,AconityLAB,Gauss defocused,140,800,1500,1.3,0.1,50,Unidirectional,0.533333333,106.6666667,,,,,,,,,,,,,,,,,,,,99.3,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,36,AlSi10Mg,AconityLAB,Gauss defocused,140,800,2000,1.3,0.1,50,Unidirectional,0.4,80,,,,,,,,,,,,,,,,,,,,99.7,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,37,AlSi10Mg,AconityLAB,Gauss defocused,140,600,1000,1.3,0.15,50,Unidirectional,0.6,80,,,,,,,,,,,,,,,,,,,,99.2,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,38,AlSi10Mg,AconityLAB,Gauss defocused,140,600,1500,1.3,0.15,50,Unidirectional,0.4,53.33333333,,,,,,,,,,,,,,,,,,,,99.6,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,39,AlSi10Mg,AconityLAB,Gauss defocused,140,600,2000,1.3,0.15,50,Unidirectional,0.3,40,,,,,,,,,,,,,,,,,,,,99.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,40,AlSi10Mg,AconityLAB,Gauss defocused,140,700,1000,1.3,0.15,50,Unidirectional,0.7,93.33333333,,,,,,,,,,,,,,,,,,,,99.3,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,41,AlSi10Mg,AconityLAB,Gauss defocused,140,700,1500,1.3,0.15,50,Unidirectional,0.466666667,62.22222222,,,,,,,,,,,,,,,,,,,,99.4,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,42,AlSi10Mg,AconityLAB,Gauss defocused,140,700,2000,1.3,0.15,50,Unidirectional,0.35,46.66666667,,,,,,,,,,,,,,,,,,,,99.6,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,43,AlSi10Mg,AconityLAB,Gauss defocused,140,800,1000,1.3,0.15,50,Unidirectional,0.8,106.6666667,,,,,,,,,,,,,,,,,,,,99.5,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,44,AlSi10Mg,AconityLAB,Gauss defocused,140,800,1500,1.3,0.15,50,Unidirectional,0.533333333,71.11111111,,,,,,,,,,,,,,,,,,,,99.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,45,AlSi10Mg,AconityLAB,Gauss defocused,140,800,2000,1.3,0.15,50,Unidirectional,0.4,53.33333333,,,,,,,,,,,,,,,,,,,,99.7,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,46,AlSi10Mg,AconityLAB,Gauss defocused,140,600,1000,1.3,0.2,50,Unidirectional,0.6,60,,,,,,,,,,,,,,,,,,,,99.7,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,47,AlSi10Mg,AconityLAB,Gauss defocused,140,600,1500,1.3,0.2,50,Unidirectional,0.4,40,,,,,,,,,,,,,,,,,,,,99.7,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,48,AlSi10Mg,AconityLAB,Gauss defocused,140,600,2000,1.3,0.2,50,Unidirectional,0.3,30,,,,,,,,,,,,,,,,,,,,99.7,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,49,AlSi10Mg,AconityLAB,Gauss defocused,140,700,1000,1.3,0.2,50,Unidirectional,0.7,70,,,,,,,,,,,,,,,,,,,,99.5,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,50,AlSi10Mg,AconityLAB,Gauss defocused,140,700,1500,1.3,0.2,50,Unidirectional,0.466666667,46.66666667,,,,,,,,,,,,,,,,,,,,99.7,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,51,AlSi10Mg,AconityLAB,Gauss defocused,140,700,2000,1.3,0.2,50,Unidirectional,0.35,35,,,,,,,,,,,,,,,,,,,,99.6,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,52,AlSi10Mg,AconityLAB,Gauss defocused,140,800,1000,1.3,0.2,50,Unidirectional,0.8,80,,,,,,,,,,,,,,,,,,,,99.4,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,53,AlSi10Mg,AconityLAB,Gauss defocused,140,800,1500,1.3,0.2,50,Unidirectional,0.533333333,53.33333333,,,,,,,,,,,,,,,,,,,,99.5,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,54,AlSi10Mg,AconityLAB,Gauss defocused,140,800,2000,1.3,0.2,50,Unidirectional,0.4,40,,,,,,,,,,,,,,,,,,,,99.7,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,1,AlSi10Mg,AconityLAB,M shaped Profile,140,300,1000,1.3,0.1,50,Unidirectional,0.3,60,,,,,,,,,,,,,,,,,,,,97.9,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,2,AlSi10Mg,AconityLAB,M shaped Profile,140,300,1500,1.3,0.1,50,Unidirectional,0.2,40,,,,,,,,,,,,,,,,,,,,98.6,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,3,AlSi10Mg,AconityLAB,M shaped Profile,140,300,2000,1.3,0.1,50,Unidirectional,0.15,30,,,,,,,,,,,,,,,,,,,,93.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,4,AlSi10Mg,AconityLAB,M shaped Profile,140,400,1000,1.3,0.1,50,Unidirectional,0.4,80,,,,,,,,,,,,,,,,,,,,98.5,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,5,AlSi10Mg,AconityLAB,M shaped Profile,140,400,1500,1.3,0.1,50,Unidirectional,0.266666667,53.33333333,,,,,,,,,,,,,,,,,,,,98.6,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,6,AlSi10Mg,AconityLAB,M shaped Profile,140,400,2000,1.3,0.1,50,Unidirectional,0.2,40,,,,,,,,,,,,,,,,,,,,99,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,7,AlSi10Mg,AconityLAB,M shaped Profile,140,500,1000,1.3,0.1,50,Unidirectional,0.5,100,,,,,,,,,,,,,,,,,,,,99.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,8,AlSi10Mg,AconityLAB,M shaped Profile,140,500,1500,1.3,0.1,50,Unidirectional,0.333333333,66.66666667,,,,,,,,,,,,,,,,,,,,99.5,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,9,AlSi10Mg,AconityLAB,M shaped Profile,140,500,2000,1.3,0.1,50,Unidirectional,0.25,50,,,,,,,,,,,,,,,,,,,,99.7,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,10,AlSi10Mg,AconityLAB,M shaped Profile,140,300,1000,1.3,0.15,50,Unidirectional,0.3,40,,,,,,,,,,,,,,,,,,,,99.3,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,11,AlSi10Mg,AconityLAB,M shaped Profile,140,300,1500,1.3,0.15,50,Unidirectional,0.2,26.66666667,,,,,,,,,,,,,,,,,,,,97.6,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,12,AlSi10Mg,AconityLAB,M shaped Profile,140,300,2000,1.3,0.15,50,Unidirectional,0.15,20,,,,,,,,,,,,,,,,,,,,85.2,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,13,AlSi10Mg,AconityLAB,M shaped Profile,140,400,1000,1.3,0.15,50,Unidirectional,0.4,53.33333333,,,,,,,,,,,,,,,,,,,,99.7,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,14,AlSi10Mg,AconityLAB,M shaped Profile,140,400,1500,1.3,0.15,50,Unidirectional,0.266666667,35.55555556,,,,,,,,,,,,,,,,,,,,99.6,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,15,AlSi10Mg,AconityLAB,M shaped Profile,140,400,2000,1.3,0.15,50,Unidirectional,0.2,26.66666667,,,,,,,,,,,,,,,,,,,,99,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,16,AlSi10Mg,AconityLAB,M shaped Profile,140,500,1000,1.3,0.15,50,Unidirectional,0.5,66.66666667,,,,,,,,,,,,,,,,,,,,99.6,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,17,AlSi10Mg,AconityLAB,M shaped Profile,140,500,1500,1.3,0.15,50,Unidirectional,0.333333333,44.44444444,,,,,,,,,,,,,,,,,,,,99.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,18,AlSi10Mg,AconityLAB,M shaped Profile,140,500,2000,1.3,0.15,50,Unidirectional,0.25,33.33333333,,,,,,,,,,,,,,,,,,,,99.5,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,19,AlSi10Mg,AconityLAB,M shaped Profile,140,300,1000,1.3,0.2,50,Unidirectional,0.3,30,,,,,,,,,,,,,,,,,,,,98.7,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,20,AlSi10Mg,AconityLAB,M shaped Profile,140,300,1500,1.3,0.2,50,Unidirectional,0.2,20,,,,,,,,,,,,,,,,,,,,86,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,21,AlSi10Mg,AconityLAB,M shaped Profile,140,300,2000,1.3,0.2,50,Unidirectional,0.15,15,,,,,,,,,,,,,,,,,,,,70.4,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,22,AlSi10Mg,AconityLAB,M shaped Profile,140,400,1000,1.3,0.2,50,Unidirectional,0.4,40,,,,,,,,,,,,,,,,,,,,99.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,23,AlSi10Mg,AconityLAB,M shaped Profile,140,400,1500,1.3,0.2,50,Unidirectional,0.266666667,26.66666667,,,,,,,,,,,,,,,,,,,,98.4,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,24,AlSi10Mg,AconityLAB,M shaped Profile,140,400,2000,1.3,0.2,50,Unidirectional,0.2,20,,,,,,,,,,,,,,,,,,,,87.2,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,25,AlSi10Mg,AconityLAB,M shaped Profile,140,500,1000,1.3,0.2,50,Unidirectional,0.5,50,,,,,,,,,,,,,,,,,,,,99.7,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,26,AlSi10Mg,AconityLAB,M shaped Profile,140,500,1500,1.3,0.2,50,Unidirectional,0.333333333,33.33333333,,,,,,,,,,,,,,,,,,,,99.5,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,27,AlSi10Mg,AconityLAB,M shaped Profile,140,500,2000,1.3,0.2,50,Unidirectional,0.25,25,,,,,,,,,,,,,,,,,,,,95.4,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,28,AlSi10Mg,AconityLAB,M shaped Profile,140,600,1000,1.3,0.1,50,Unidirectional,0.6,120,,,,,,,,,,,,,,,,,,,,99.9,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,29,AlSi10Mg,AconityLAB,M shaped Profile,140,600,1500,1.3,0.1,50,Unidirectional,0.4,80,,,,,,,,,,,,,,,,,,,,99.7,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,30,AlSi10Mg,AconityLAB,M shaped Profile,140,600,2000,1.3,0.1,50,Unidirectional,0.3,60,,,,,,,,,,,,,,,,,,,,99.7,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,31,AlSi10Mg,AconityLAB,M shaped Profile,140,700,1000,1.3,0.1,50,Unidirectional,0.7,140,,,,,,,,,,,,,,,,,,,,100,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,32,AlSi10Mg,AconityLAB,M shaped Profile,140,700,1500,1.3,0.1,50,Unidirectional,0.466666667,93.33333333,,,,,,,,,,,,,,,,,,,,100,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,33,AlSi10Mg,AconityLAB,M shaped Profile,140,700,2000,1.3,0.1,50,Unidirectional,0.35,70,,,,,,,,,,,,,,,,,,,,99.9,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,34,AlSi10Mg,AconityLAB,M shaped Profile,140,800,1000,1.3,0.1,50,Unidirectional,0.8,160,,,,,,,,,,,,,,,,,,,,99.9,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,35,AlSi10Mg,AconityLAB,M shaped Profile,140,800,1500,1.3,0.1,50,Unidirectional,0.533333333,106.6666667,,,,,,,,,,,,,,,,,,,,99.9,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,36,AlSi10Mg,AconityLAB,M shaped Profile,140,800,2000,1.3,0.1,50,Unidirectional,0.4,80,,,,,,,,,,,,,,,,,,,,99.9,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,37,AlSi10Mg,AconityLAB,M shaped Profile,140,600,1000,1.3,0.15,50,Unidirectional,0.6,80,,,,,,,,,,,,,,,,,,,,99.9,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,38,AlSi10Mg,AconityLAB,M shaped Profile,140,600,1500,1.3,0.15,50,Unidirectional,0.4,53.33333333,,,,,,,,,,,,,,,,,,,,99.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,39,AlSi10Mg,AconityLAB,M shaped Profile,140,600,2000,1.3,0.15,50,Unidirectional,0.3,40,,,,,,,,,,,,,,,,,,,,99.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,40,AlSi10Mg,AconityLAB,M shaped Profile,140,700,1000,1.3,0.15,50,Unidirectional,0.7,93.33333333,,,,,,,,,,,,,,,,,,,,99.9,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,41,AlSi10Mg,AconityLAB,M shaped Profile,140,700,1500,1.3,0.15,50,Unidirectional,0.466666667,62.22222222,,,,,,,,,,,,,,,,,,,,99.9,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,42,AlSi10Mg,AconityLAB,M shaped Profile,140,700,2000,1.3,0.15,50,Unidirectional,0.35,46.66666667,,,,,,,,,,,,,,,,,,,,99.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,43,AlSi10Mg,AconityLAB,M shaped Profile,140,800,1000,1.3,0.15,50,Unidirectional,0.8,106.6666667,,,,,,,,,,,,,,,,,,,,99.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,44,AlSi10Mg,AconityLAB,M shaped Profile,140,800,1500,1.3,0.15,50,Unidirectional,0.533333333,71.11111111,,,,,,,,,,,,,,,,,,,,99.9,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,45,AlSi10Mg,AconityLAB,M shaped Profile,140,800,2000,1.3,0.15,50,Unidirectional,0.4,53.33333333,,,,,,,,,,,,,,,,,,,,99.9,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,46,AlSi10Mg,AconityLAB,M shaped Profile,140,600,1000,1.3,0.2,50,Unidirectional,0.6,60,,,,,,,,,,,,,,,,,,,,99.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,47,AlSi10Mg,AconityLAB,M shaped Profile,140,600,1500,1.3,0.2,50,Unidirectional,0.4,40,,,,,,,,,,,,,,,,,,,,99.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,48,AlSi10Mg,AconityLAB,M shaped Profile,140,600,2000,1.3,0.2,50,Unidirectional,0.3,30,,,,,,,,,,,,,,,,,,,,99.6,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,49,AlSi10Mg,AconityLAB,M shaped Profile,140,700,1000,1.3,0.2,50,Unidirectional,0.7,70,,,,,,,,,,,,,,,,,,,,99.9,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,50,AlSi10Mg,AconityLAB,M shaped Profile,140,700,1500,1.3,0.2,50,Unidirectional,0.466666667,46.66666667,,,,,,,,,,,,,,,,,,,,99.9,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,51,AlSi10Mg,AconityLAB,M shaped Profile,140,700,2000,1.3,0.2,50,Unidirectional,0.35,35,,,,,,,,,,,,,,,,,,,,99.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,52,AlSi10Mg,AconityLAB,M shaped Profile,140,800,1000,1.3,0.2,50,Unidirectional,0.8,80,,,,,,,,,,,,,,,,,,,,99.9,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,53,AlSi10Mg,AconityLAB,M shaped Profile,140,800,1500,1.3,0.2,50,Unidirectional,0.533333333,53.33333333,,,,,,,,,,,,,,,,,,,,99.9,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+1,54,AlSi10Mg,AconityLAB,M shaped Profile,140,800,2000,1.3,0.2,50,Unidirectional,0.4,40,,,,,,,,,,,,,,,,,,,,99.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Preheating 200 grad Celsius
+9,Sample 1,AlSi10Mg,Concept Laser M2 PBF,Gauss focused,105,180,625,,0.1,30,90¯ alternating,,,,,,,,,,Oct-60,,,,,,,,,,,,97.97,,,,,,,,,,,,,,,,,,,,,,,,,Nitrogen,,
+9,Sample 2,AlSi10Mg,Concept Laser M2 PBF,Gauss focused,105,180,750,,0.1,30,90¯ alternating,,,,,,,,,,Oct-60,,,,,,,,,,,,97.79,,,,,,,,,,,,,,,,,,,,,,,,,Nitrogen,,
+9,Sample 3,AlSi10Mg,Concept Laser M2 PBF,Gauss focused,105,180,800,,0.1,30,90¯ alternating,,,,,,,,,,Oct-60,,,,,,,,,,,,97.41,,,,,,,,,,,,,,,,,,,,,,,,,Nitrogen,,
+9,Sample 4,AlSi10Mg,Concept Laser M2 PBF,Gauss focused,105,180,950,,0.1,30,90¯ alternating,,,,,,,,,,Oct-60,,,,,,,,,,,,97.5,,,,,,,,,,,,,,,,,,,,,,,,,Nitrogen,,
+9,Sample 5,AlSi10Mg,Concept Laser M2 PBF,Gauss focused,105,180,1000,,0.1,30,90¯ alternating,,,,,,,,,,Oct-60,,,,,,,,,,,,97.46,,,,,,,,,,,,,,,,,,,,,,,,,Nitrogen,,
+9,Sample 6,AlSi10Mg,Concept Laser M2 PBF,Gauss focused,105,180,1050,,0.1,30,90¯ alternating,,,,,,,,,,Oct-60,,,,,,,,,,,,99.31,,,,,,,,,,,,,,,,,,,,,,,,,Nitrogen,,
+9,Sample 7,AlSi10Mg,Concept Laser M2 PBF,Gauss focused,105,180,1125,,0.1,30,90¯ alternating,,,,,,,,,,Oct-60,,,,,,,,,,,,99.36,,,,,,,,,,,,,,,,,,,,,,,,,Nitrogen,,
+9,Sample 8,AlSi10Mg,Concept Laser M2 PBF,Gauss focused,105,180,1250,,0.1,30,90¯ alternating,,,,,,,,,,Oct-60,,,,,,,,,,,,99.28,,,,,,,,,,,,,,,,,,,,,,,,,Nitrogen,,
+9,Sample 9,AlSi10Mg,Concept Laser M2 PBF,Gauss focused,105,180,1500,,0.1,30,90¯ alternating,,,,,,,,,,Oct-60,,,,,,,,,,,,97.84,,,,,,,,,,,,,,,,,,,,,,,,,Nitrogen,,
+9,Sample 10,AlSi10Mg,Concept Laser M2 PBF,Gauss focused,105,180,2000,,0.1,30,90¯ alternating,,,,,,,,,,Oct-60,,,,,,,,,,,,88.89,,,,,,,,,,,,,,,,,,,,,,,,,Nitrogen,,
+10,Sample Set 01,AlSi10Mg,Mlab Cusing R,Gauss focused,50,95,650,,,15,Chessboard,,,,,,,,Concept Laser GmbH,,,,,,,,75,202-218,325-349,05-Oct,115-125,HBW,98.16,,,,,,,,Rest,"9,1-11","0-0,05","0-0,55","0-0,1","0-0,45","0,2-0,45","0-0,15","0-0,1","0-0,05",0,0,0-0.05,0,,,,,,Plattform Temperatur 160¯C
+10,Sample Set 02,AlSi10Mg,Mlab Cusing R,Gauss focused,50,95,650,,,15,Continuous,,,,,,,,Concept Laser GmbH,,,,,,,,75,202-218,325-349,05-Oct,115-125,HBW,95.69,,,,,,,,Rest,"9,1-11","0-0,05","0-0,55","0-0,1","0-0,45","0,2-0,45","0-0,15","0-0,1","0-0,05",0,0,0-0.05,0,,,,,,Plattform Temperatur 160¯C
+10,Sample Set 03,AlSi10Mg,Mlab Cusing R,Gauss focused,50,95,480,,,20,Chessboard,,,,,,,,Concept Laser GmbH,,,,,,,,75,202-218,325-349,05-Oct,115-125,HBW,97.24,,,,,,,,Rest,"9,1-11","0-0,05","0-0,55","0-0,1","0-0,45","0,2-0,45","0-0,15","0-0,1","0-0,05",0,0,0-0.05,0,,,,,,Plattform Temperatur 160¯C
+10,Sample Set 04,AlSi10Mg,Mlab Cusing R,Gauss focused,50,95,650,,,15,Chessboard,,,,,,,,Concept Laser GmbH,,,,,,,,75,202-218,325-349,05-Oct,115-125,HBW,98.08,,,,,,,,Rest,"9,1-11","0-0,05","0-0,55","0-0,1","0-0,45","0,2-0,45","0-0,15","0-0,1","0-0,05",0,0,0-0.05,0,,,,,,Plattform Temperatur 160¯C
+10,Sample Set 05,AlSi10Mg,Mlab Cusing R,Gauss focused,50,95,650,,,15,Stripes(45¯),,,,,,,,Concept Laser GmbH,,,,,,,,75,202-218,325-349,05-Oct,115-125,HBW,97.59,,,,,,,,Rest,"9,1-11","0-0,05","0-0,55","0-0,1","0-0,45","0,2-0,45","0-0,15","0-0,1","0-0,05",0,0,0-0.05,0,,,,,,Plattform Temperatur 160¯C
+10,Sample Set 06,AlSi10Mg,Mlab Cusing R,Gauss focused,50,95,650,,,15,Stripes(67¯),,,,,,,,Concept Laser GmbH,,,,,,,,75,202-218,325-349,05-Oct,115-125,HBW,98.13,,,,,,,,Rest,"9,1-11","0-0,05","0-0,55","0-0,1","0-0,45","0,2-0,45","0-0,15","0-0,1","0-0,05",0,0,0-0.05,0,,,,,,Plattform Temperatur 160¯C
+11,Element S1,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,170,800,,0.105,30,,,,,,,,,,,16.3,,,,,,,,,,,,96.6,,,,,,,,Rest,9.02,0,0.123,0.006,0,0.471,0,0,0,0,0,0,0,,,,Argon,,
+11,Element S1,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,170,1000,,0.105,30,,,,,,,,,,,16.3,,,,,,,,,,,,96.7,,,,,,,,Rest,9.02,0,0.123,0.006,0,0.471,0,0,0,0,0,0,0,,,,Argon,,
+11,Element S1,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,170,1200,,0.105,30,,,,,,,,,,,16.3,,,,,,,,,,,,96.5,,,,,,,,Rest,9.02,0,0.123,0.006,0,0.471,0,0,0,0,0,0,0,,,,Argon,,
+11,Element S1,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,170,1400,,0.105,30,,,,,,,,,,,16.3,,,,,,,,,,,,96,,,,,,,,Rest,9.02,0,0.123,0.006,0,0.471,0,0,0,0,0,0,0,,,,Argon,,
+11,Element S1,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,170,1600,,0.105,30,,,,,,,,,,,16.3,,,,,,,,,,,,95.2,,,,,,,,Rest,9.02,0,0.123,0.006,0,0.471,0,0,0,0,0,0,0,,,,Argon,,
+11,Element S2,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,170,800,,0.105,30,,,,,,,,,,,48.4,,,,,,,,,,,,95.55,,,,,,,,Rest,8.05,0,0.455,0.096,0,0.542,0,0,0,0,0,0,0,,,,Argon,,
+11,Element S2,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,170,1000,,0.105,30,,,,,,,,,,,48.4,,,,,,,,,,,,95.65,,,,,,,,Rest,8.05,0,0.455,0.096,0,0.542,0,0,0,0,0,0,0,,,,Argon,,
+11,Element S2,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,170,1200,,0.105,30,,,,,,,,,,,48.4,,,,,,,,,,,,95.6,,,,,,,,Rest,8.05,0,0.455,0.096,0,0.542,0,0,0,0,0,0,0,,,,Argon,,
+11,Element S2,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,170,1400,,0.105,30,,,,,,,,,,,48.4,,,,,,,,,,,,94.4,,,,,,,,Rest,8.05,0,0.455,0.096,0,0.542,0,0,0,0,0,0,0,,,,Argon,,
+11,Element S2,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,170,1600,,0.105,30,,,,,,,,,,,48.4,,,,,,,,,,,,92.8,,,,,,,,Rest,8.05,0,0.455,0.096,0,0.542,0,0,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,170,800,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,99.1,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,170,1000,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,99.35,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,170,1200,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,99.1,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,170,1400,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,98.5,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,170,1600,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,97.6,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,180,900,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,99,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,180,1100,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,99.2,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,180,1300,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,99.1,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,180,1400,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,98.9,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,180,1500,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,98.6,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,190,800,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,98.35,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,190,1000,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,98.8,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,190,1200,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,99.2,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,190,1400,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,99.15,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,190,1600,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,98.8,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,200,200,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,94.6,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,200,400,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,96.9,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,200,500,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,97.6,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,200,600,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,98.15,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,200,700,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,98.2,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,200,800,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,98.8,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,200,900,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,98.75,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,200,1000,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,99.05,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,200,1100,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,98.8,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,200,1200,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,99.1,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,200,1300,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,99.15,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,200,1400,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,99.25,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+11,,AlSi10Mg,modified Concept Laser M1 SLM,Gauss focused,150,200,1500,,0.105,30,,,,,,,,,,,,,,,,,,,,,,,99.2,,,,,,,,Rest,09-Nov,0,"<0,55","<0,1",0.05,"0,45-0,6",0,0.05,0,0,0,0,0,,,,Argon,,
+4,,AlSi10Mg,SLM 250 HL,Gauss focused,84,350,1100,,0.19,50,"Streifenbelichtung, alternierend mit einem Inkrement von 79¯ und zwei Konturfahrten",0.318181818,39.64,,0.22,0,800,300,,Altpulver(mehrfach gesiebt),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Argon,,Altpulver (mehrfach gesiebt)
+7,Experiment 1,AlSi10Mg,Aconity LAB,Gauss focused,,400,1500,,0.19,30,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Plattform Temperatur 200¯C
+7,Experiment 2,AlSi10Mg,Aconity LAB,Gauss focused,,400,1500,,0.19,30,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+8,,AlSi10Mg,Aconity LAB,Gauss focused,,400,1500,,0.19,30,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
