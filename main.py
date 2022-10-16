@@ -53,7 +53,7 @@ if __name__ == "__main__":
     DesDen = 95 # minimal possible density, which appear in the process window
     NT3d = 9 #number of ticks on the colorbar on the 3D plot
     NT2d = 9 #number of ticks on the colorbar on the 2D plot
-    randomstate = 45 # sets a random state for the random split funktion to reproduce results
+    randomstate = 40 # sets a random state for the random split funktion to reproduce results
     testdatasize = 0.2 # defines the trainingdatasize of the Trainingsdatasplit in Test and Trainingsdata
     T = 0.2 #Threshold for hierarchical clustering visable in Dendrogram
     scoring = 'neg_mean_absolute_percentage_error'#,'neg_root_mean_squared_error'] # defines the used scoring method
@@ -120,14 +120,14 @@ if __name__ == "__main__":
     model2 = net.fit(X_train, y_train)
 
     # GRID SEARCH tune hyperparameters
-    GS = GridSearchCV(estimator=net2,param_grid=search_spache,scoring="neg_mean_absolute_percentage_error", refit="neg_mean_absolute_percentage_error",cv = 5, verbose=4, n_jobs=-1) #sklearn.metrics.SCORERS.keys()
+    GS = GridSearchCV(estimator=net2,param_grid=search_spache,scoring=scoring, refit=scoring,cv = 5, verbose=4, n_jobs=-1) #sklearn.metrics.SCORERS.keys()
     GS.fit(X_train,y_train)
     if automaticfeatsel == 1:
         model4 = GS.best_estimator_
 
         # gets the most important features for the trained grid search model
         X_sel,colheadersidf_sel = getpermutationimportance(model4,X_test,y_test,randomstate, scoring,colheadersidf_sel,idf)
-        os.system("pause")
+
         #Divide data in TRAINING DATA and TEST DATA
         X_train_sel2, X_test_sel2, y_train_sel2, y_test_sel2 = train_test_split(X_sel,y, test_size=testdatasize, random_state=randomstate, shuffle=True)
 
@@ -204,9 +204,8 @@ if __name__ == "__main__":
     # priProWin(D1,95)
     # D2= preVal(model2,100,1000,100,1000,10000,100)
     # priProWin(D2,95)
-    D3= preVal(model3,minf1val,maxf1val,f1p,minf2val,maxf2val,f2p,automaticfeatsel, X_sel)
-    print("D3",D3)
-    #priProWin(D3,colheadersidf_sel,DesDen,NT3d,NT2d)
+    D3= preVal(model3,minf1val,maxf1val,f1p,minf2val,maxf2val,f2p,automaticfeatsel, X_sel) # randomstate 42 und 40 
+    priProWin(D3,colheadersidf_sel,DesDen,NT3d,NT2d)
     # D2= preVal(model2,minf1val,maxf1val,f1p,minf2val,maxf2val,f2p)
     # priProWin(D2,colheadersidf,DesDen,NT3d,NT2d)
 

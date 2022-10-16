@@ -204,7 +204,8 @@ def getpermutationimportance(model_sel,X_test,y_test,randomstate,scoring,colhead
         print("\n")
         print("-----INFORMATION AUTOMATIC FEATURE SELECTION-----")
         print("No suitable features were found by the automatic feature selection. Please change the input data, boundary parameters or the random state. ")
-        print("Programm closed.")
+        print("Program closed.")
+        print("-------------------------------------------------")
         quit()
     
     return X_sel2,colheadersidf_sel2
