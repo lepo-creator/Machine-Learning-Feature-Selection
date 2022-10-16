@@ -18,6 +18,8 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.neural_network import MLPRegressor
 import pandas as pd
 import numpy as np
+import os
+
 
 #own imports
 from plotpy import *
@@ -27,7 +29,12 @@ from featureselection import *
 
 
 if __name__ == "__main__":
-    ##INPUT##
+
+    #--------------------------------------------------------------------------------------------------------------------------
+    #-----------------------------------------------------INPUT----------------------------------------------------------------
+    #--------------------------------------------------------------------------------------------------------------------------
+
+
     maxf1val =100     #maximal possible value of feature 1
     minf1val =800   #minimal possible value of feature 1
     f1p=100          #Number of points, which are plotted in the borders of min and max value of f1
@@ -46,13 +53,21 @@ if __name__ == "__main__":
     DesDen = 95 # minimal possible density, which appear in the process window
     NT3d = 9 #number of ticks on the colorbar on the 3D plot
     NT2d = 9 #number of ticks on the colorbar on the 2D plot
-    randomstate = 42 # sets a random state for the random split funktion to reproduce results
+    randomstate = 45 # sets a random state for the random split funktion to reproduce results
     testdatasize = 0.2 # defines the trainingdatasize of the Trainingsdatasplit in Test and Trainingsdata
     T = 0.2 #Threshold for hierarchical clustering visable in Dendrogram
     scoring = 'neg_mean_absolute_percentage_error'#,'neg_root_mean_squared_error'] # defines the used scoring method
-    automaticfeatsel = 0 # Defines, wether the feature selection appears automatic or manual
+    automaticfeatsel = 1 # Defines, wether the feature selection appears automatic or manual
     incolfea = [6,7,5] # defines the selected features, if automaticfeatsel is 0
 
+    
+    
+    #--------------------------------------------------------------------------------------------------------------------------
+    #-----------------------------------------------------CODE-----------------------------------------------------------------
+    #--------------------------------------------------------------------------------------------------------------------------
+      
+    
+    
     if automaticfeatsel == 1:
         idf=readcsvcol(inputfilepath,invcol) # gets the pandas dataframe#
         le = len(invcol)
@@ -60,8 +75,7 @@ if __name__ == "__main__":
         idf=readcsvcol(inputfilepath,incolfea) # gets the pandas dataframe
         le = len(incolfea)
     else:
-        print("ERORR: automaticfeatsel needs to be 0 or 1. Thank you.")
-        exit
+        raise ValueError("Variable automaticfeatsel needs to be 0 or 1.")
 
 
     # print(idf.head())
@@ -89,9 +103,9 @@ if __name__ == "__main__":
     #     X_train, X_test = X[train_index], X[test_index]
     #     y_train, y_test = y[train_index], y[test_index]
 
-    #Plot Input Data Points
-    plotinputdata(X,y,colheadersidf,NT3d)
-    plotinputdataML(X_train,y_train,X_test, y_test,colheadersidf,testdatasize)
+    # #Plot Input Data Points
+    # plotinputdata(X,y,colheadersidf,NT3d)
+    # plotinputdataML(X_train,y_train,X_test, y_test,colheadersidf,testdatasize)
     
 
     # Train LINEAR REGRESSON MODEL
@@ -112,10 +126,10 @@ if __name__ == "__main__":
         model4 = GS.best_estimator_
 
         # gets the most important features for the trained grid search model
-        X_sel2,colheadersidf_sel2 = getpermutationimportance(model4,X_test,y_test,randomstate, scoring,colheadersidf_sel,idf)
-
+        X_sel,colheadersidf_sel = getpermutationimportance(model4,X_test,y_test,randomstate, scoring,colheadersidf_sel,idf)
+        os.system("pause")
         #Divide data in TRAINING DATA and TEST DATA
-        X_train_sel2, X_test_sel2, y_train_sel2, y_test_sel2 = train_test_split(X_sel2,y, test_size=testdatasize, random_state=randomstate, shuffle=True)
+        X_train_sel2, X_test_sel2, y_train_sel2, y_test_sel2 = train_test_split(X_sel,y, test_size=testdatasize, random_state=randomstate, shuffle=True)
 
         #Train same model again
         GS.fit(X_train_sel2,y_train_sel2)
@@ -190,8 +204,9 @@ if __name__ == "__main__":
     # priProWin(D1,95)
     # D2= preVal(model2,100,1000,100,1000,10000,100)
     # priProWin(D2,95)
-    D3= preVal(model3,minf1val,maxf1val,f1p,minf2val,maxf2val,f2p)
-    priProWin(D3,colheadersidf,DesDen,NT3d,NT2d)
+    D3= preVal(model3,minf1val,maxf1val,f1p,minf2val,maxf2val,f2p,automaticfeatsel, X_sel)
+    print("D3",D3)
+    #priProWin(D3,colheadersidf_sel,DesDen,NT3d,NT2d)
     # D2= preVal(model2,minf1val,maxf1val,f1p,minf2val,maxf2val,f2p)
     # priProWin(D2,colheadersidf,DesDen,NT3d,NT2d)
 

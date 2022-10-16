@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 from fileinput import filename
 from traceback import print_tb
 from weakref import ref
@@ -9,7 +10,7 @@ from sklearn.model_selection import train_test_split
 from matplotlib import pyplot as plt
 import pandas as pd
 import numpy as np
-
+from itertools import product
 from scipy.spatial import ConvexHull
 
 #own imports
@@ -33,41 +34,55 @@ plt.set_loglevel("error") # just shows important error. Ignores warnings.
 
 
 
-def preVal(model,f1min,f1max,f1num,f2min,f2max,f2num):
-    #creates a set of values according to the input parameters
-    f1 = np.linspace(f1min, f1max, f1num)
-    f2 = np.linspace(f2min, f2max, f2num)
-    # print("f1",f1)
-    # print("shape f1",f1.shape)
-    # print("f2",f2)
-    #Transforms the the lines to vectors for further processing
-    f1vt, u1 = np.meshgrid(f1,1)
-    f2vt, u2 = np.meshgrid(f2,1)
-    f1v= f1vt.T
-    f2v= f2vt.T
-    # print("\n")
-    # print(f1vt)
-    # print(u1)
+def preVal(model,f1min,f1max,f1num,f2min,f2max,f2num, automaticfeatsel, X_sel):
+    
+    if automaticfeatsel == 0:
+        #creates a set of values according to the input parameters
+        f1 = np.linspace(f1min, f1max, f1num)
+        f2 = np.linspace(f2min, f2max, f2num)
+        # print("f1",f1)
+        # print("shape f1",f1.shape)
+        # print("f2",f2)
+        #Transforms the the lines to vectors for further processing
+        f1vt, u1 = np.meshgrid(f1,1)
+        f2vt, u2 = np.meshgrid(f2,1)
+        f1v= f1vt.T
+        f2v= f2vt.T
+        # print("\n")
+        # print(f1vt)
+        # print(u1)
+        #Fill an numpy X array in the right form
+        numrows=f1num*f2num
+        X_pre = np.zeros((numrows,2))
+        l = 0
+        for i in range(f1num):
+            for k in range(f2num):
+                X_pre[l][0]=f1v[i]
+                X_pre[l][1]=f2v[k]
+                l+=1
+        # print("X Predict werte",X_pre)
 
-    #Fill an numpy X array in the right form
-    numrows=f1num*f2num
-    X_pre = np.zeros((numrows,2))
-    l = 0
-    for i in range(f1num):
-        for k in range(f2num):
-            X_pre[l][0]=f1v[i]
-            X_pre[l][1]=f2v[k]
-            l+=1
-    # print("X Predict werte",X_pre)
+       
+
+        # #DEBUGG print D
+        # print(D)
+        # print(D.shape)
+
+    elif automaticfeatsel == 1:
+        maximum_element_col = np.max(X_sel, 0)
+        minimum_element_col = np.min(X_sel, 0)
+        a =[]
+        for i in range(len(maximum_element_col)):
+            a.append(np.linspace(minimum_element_col[i], maximum_element_col[i], f1num)) # adds a linspace array for each feature
+        X_l = list(product(*a)) # creates a list with all combinations of features
+        X_pre = np.asarray(X_l) # turns the list in a numpy array
 
     # Calculate preditions and add them together to one array
     y_pre = model.predict(X_pre)
     y_prevt, u1 = np.meshgrid(y_pre,1)
-    D = np.insert(X_pre,2, y_prevt, axis=1)
-
-    # #DEBUGG print D
-    # print(D)
-    # print(D.shape)
+    num_col = np.atleast_2d(X_pre).shape[1] # gets the number of columns of a numpy array
+    D = np.insert(X_pre,num_col, y_prevt, axis=1) # inserts a col vector in a numpy array at position num_col      
+   
     return D 
 
 def priProWin(D,colheadersidf,desden,cp1a,cp2a):
@@ -274,10 +289,9 @@ if __name__ == "__main__":
     #Spilts the Pandas dataframe in to numpy array Inputs X and result y 
     X = idf.iloc[:,0:2].values
     y = idf.iloc[:,2:3].values.ravel() #ravel funktion converts the array to a (n,) array instead of an (n,1) vector
-    print(X)
-    print(y)
-    print(y.shape)
-    plotinputdata(X,y,colheadersidf,8)
+  
+
+    # plotinputdata(X,y,colheadersidf,8)
     # Divide data in TRAINING DATA and TEST DATA
     X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.1)
 
@@ -288,5 +302,5 @@ if __name__ == "__main__":
     
 
 
-    D = preVal(model,0,100,4,0,100,4)
+    D = preVal(model,0,100,4,0,100,4,1,X)
     # priProWin(D,colheadersidf,95,8,8)

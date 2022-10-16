@@ -12,7 +12,7 @@ from scipy.stats import spearmanr
 from scipy.stats import pearsonr
 from scipy.cluster import hierarchy
 from scipy.spatial.distance import squareform
-
+import os
 from collections import defaultdict
 
 #own imports
@@ -197,6 +197,15 @@ def getpermutationimportance(model_sel,X_test,y_test,randomstate,scoring,colhead
         mngr.window.setGeometry(x, y, dx, dy)
         x += dx
     plt.show()
+
+    num_col = np.atleast_2d(X_sel2).shape[1] # gets the number of columns of a numpy array
+    
+    if num_col == 0:
+        print("\n")
+        print("-----INFORMATION AUTOMATIC FEATURE SELECTION-----")
+        print("No suitable features were found by the automatic feature selection. Please change the input data, boundary parameters or the random state. ")
+        print("Programm closed.")
+        quit()
     
     return X_sel2,colheadersidf_sel2
 
@@ -235,7 +244,7 @@ if __name__ == '__main__':
     net = MLPRegressor(hidden_layer_sizes=(30,),activation='relu', solver = 'lbfgs', max_iter= 10000000, random_state=randomstate)
     model_sel = net.fit(X_train,y_train)
 
-    X_sel2,colheadersidf_sel2 = getpermutationimportance(model_sel,X_test,y_test)
+    X_sel2,colheadersidf_sel2 = getpermutationimportance(model_sel,X_test,y_test,randomstate,scoring,colheadersidf_sel,idf)
     print("X selected 2",X_sel2)
     print("Colnames 2",colheadersidf_sel2)
 
