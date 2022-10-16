@@ -50,19 +50,33 @@ if __name__ == "__main__":
     testdatasize = 0.2 # defines the trainingdatasize of the Trainingsdatasplit in Test and Trainingsdata
     T = 0.2 #Threshold for hierarchical clustering visable in Dendrogram
     scoring = 'neg_mean_absolute_percentage_error'#,'neg_root_mean_squared_error'] # defines the used scoring method
+    automaticfeatsel = 0 # Defines, wether the feature selection appears automatic or manual
+    incolfea = [6,7,5] # defines the selected features, if automaticfeatsel is 0
+
+    if automaticfeatsel == 1:
+        idf=readcsvcol(inputfilepath,invcol) # gets the pandas dataframe#
+        le = len(invcol)
+    elif automaticfeatsel == 0:
+        idf=readcsvcol(inputfilepath,incolfea) # gets the pandas dataframe
+        le = len(incolfea)
+    else:
+        print("ERORR: automaticfeatsel needs to be 0 or 1. Thank you.")
+        exit
 
 
-    idf=readcsvcol(inputfilepath,invcol) # gets the pandas dataframe
     # print(idf.head())
     colheadersidf=list(idf.columns.values) # gets a list of df header strings
 
     #Spilts the Pandas dataframe in to numpy array Inputs X and result y 
-    X = idf.iloc[:,0:len(invcol)-1].values
-    y = idf.iloc[:,len(invcol)-1:len(invcol)].values.ravel() #ravel funktion converts the array to a (n,) array instead of an (n,1) vector
-
+    X = idf.iloc[:,0:le-1].values
+    y = idf.iloc[:,le-1:le].values.ravel() #ravel funktion converts the array to a (n,) array instead of an (n,1) vector
 
     #Remove features that have a close monotonic correlations
-    X_sel,colheadersidf_sel = getfeaturecorrelation(X,T,colheadersidf)
+    if automaticfeatsel == 1:
+        X_sel,colheadersidf_sel = getfeaturecorrelation(X,T,colheadersidf)
+    else:
+        X_sel = X
+        colheadersidf_sel = colheadersidf
 
     #Divide data in TRAINING DATA and TEST DATA
     X_train, X_test, y_train, y_test = train_test_split(X_sel,y, test_size=testdatasize, random_state=randomstate, shuffle=True)
@@ -94,18 +108,24 @@ if __name__ == "__main__":
     # GRID SEARCH tune hyperparameters
     GS = GridSearchCV(estimator=net2,param_grid=search_spache,scoring="neg_mean_absolute_percentage_error", refit="neg_mean_absolute_percentage_error",cv = 5, verbose=4, n_jobs=-1) #sklearn.metrics.SCORERS.keys()
     GS.fit(X_train,y_train)
-    model4 = GS.best_estimator_
+    if automaticfeatsel == 1:
+        model4 = GS.best_estimator_
 
-    # gets the most important features for the trained grid search model
-    X_sel2,colheadersidf_sel2 = getpermutationimportance(model4,X_test,y_test,randomstate, scoring,colheadersidf_sel,idf)
+        # gets the most important features for the trained grid search model
+        X_sel2,colheadersidf_sel2 = getpermutationimportance(model4,X_test,y_test,randomstate, scoring,colheadersidf_sel,idf)
 
-    #Divide data in TRAINING DATA and TEST DATA
-    X_train_sel2, X_test_sel2, y_train_sel2, y_test_sel2 = train_test_split(X_sel2,y, test_size=testdatasize, random_state=randomstate, shuffle=True)
+        #Divide data in TRAINING DATA and TEST DATA
+        X_train_sel2, X_test_sel2, y_train_sel2, y_test_sel2 = train_test_split(X_sel2,y, test_size=testdatasize, random_state=randomstate, shuffle=True)
 
-    # GRID SEARCH 2 tune hyperparameters
-    GS2 = GridSearchCV(estimator=net2,param_grid=search_spache,scoring="neg_mean_absolute_percentage_error", refit="neg_mean_absolute_percentage_error",cv = 5, verbose=4, n_jobs=-1) #sklearn.metrics.SCORERS.keys()
-    GS2.fit(X_train_sel2,y_train)
-    model3 = GS2.best_estimator_
+        #Train same model again
+        GS.fit(X_train_sel2,y_train_sel2)
+    
+    model3 = GS.best_estimator_
+
+    # # GRID SEARCH 2 tune hyperparameters
+    # GS2 = GridSearchCV(estimator=net2,param_grid=search_spache,scoring="neg_mean_absolute_percentage_error", refit="neg_mean_absolute_percentage_error",cv = 5, verbose=4, n_jobs=-1) #sklearn.metrics.SCORERS.keys()
+    # GS2.fit(X_train_sel2,y_train)
+    # model3 = GS2.best_estimator_
 
     
 
@@ -132,11 +152,11 @@ if __name__ == "__main__":
 
 
     #Print OUTPUT DATA
-    print("Grid Search results BEST MODEL\n",GS2.best_estimator_)
-    print("Grid Search results BEST PARAMETERS\n",GS2.best_params_)
-    print("Grid Search results BEST SCORE\n",GS2.best_score_)
+    print("Grid Search results BEST MODEL\n",GS.best_estimator_)
+    print("Grid Search results BEST PARAMETERS\n",GS.best_params_)
+    print("Grid Search results BEST SCORE\n",GS.best_score_)
 
-    df = pd.DataFrame(GS2.cv_results_)
+    df = pd.DataFrame(GS.cv_results_)
     df = df.sort_values("rank_test_score")
     # print(df.head())
     df.to_csv(outputfilepath)
