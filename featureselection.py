@@ -21,6 +21,28 @@ from plotpy import *
 
 
 
+
+#Sets Plotdesigndata on global Level
+#CHANGE FONT TYPE
+plt.rc('font',family='Linux Biolinum')
+#CHANGE FONT SIZES
+# plt.rc('font', size=12, weight='bold') #controls default text size
+#plt.rc('font', size=12) #controls default text size
+plt.rc('figure', titlesize=17.28) #fontsize of the title
+plt.rc('axes', titlesize=14.4) #fontsize of the title
+plt.rc('axes', labelsize=12) #fontsize of the x and y labels
+plt.rc('xtick', labelsize=12) #fontsize of the x tick labels
+plt.rc('ytick', labelsize=12) #fontsize of the y tick labels
+plt.rc('legend', fontsize=12) #fontsize of the legend
+plt.set_loglevel("error") # just shows important error. Ignores warnings.
+
+
+
+
+
+
+
+
 def getfeaturecorrelation(X,T,colheadersidf):
 
     #Plots 2 Windows next to each other uses window pixel size
@@ -51,6 +73,9 @@ def getfeaturecorrelation(X,T,colheadersidf):
             )
             dendro_idx = np.arange(0, len(dendro["ivl"]))
 
+
+            fig.suptitle('Dendrogram of Spearman Correlation Hierarchical Clustering', fontweight ="bold")
+            ax1.set_ylabel("Distance")
             ax2.imshow(corr[dendro["leaves"], :][:, dendro["leaves"]])
             ax2.set_xticks(dendro_idx)
             ax2.set_yticks(dendro_idx)
@@ -183,7 +208,7 @@ def getpermutationimportance(model_sel,X_test,y_test,randomstate,scoring,colhead
             # ax.legend()
 
             # cb=plt.colorbar(sc,ticks=np.linspace(minVal,maxVal,cp1a),format='%.2f')
-            fig.suptitle('3D Visualisation of Permutation Importance ', fontweight ="bold")
+            fig.suptitle('Visualisation of Mean Permutation Importance of each Feature ', fontweight ="bold")
             ax.set_xlabel("Mean Permutation Importance")
             # ax.set_ylabel(colheadersidf[1])
             # ax.set_zlabel(colheadersidf[2])

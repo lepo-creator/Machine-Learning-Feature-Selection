@@ -92,6 +92,15 @@ def preVal(model,f1min,f1max,f1num,f2min,f2max,f2num, automaticfeatsel, X_sel):
                     
                     l+=1
             # print("X Predict werte",X_pre)
+        else:
+            maximum_element_col = np.max(X_sel, 0)
+            minimum_element_col = np.min(X_sel, 0)
+            a =[]
+            for i in range(len(maximum_element_col)):
+                a.append(np.linspace(minimum_element_col[i], maximum_element_col[i], f1num)) # adds a linspace array for each feature
+            X_l = list(product(*a)) # creates a list with all combinations of features
+            X_pre = np.asarray(X_l) # turns the list in a numpy array
+
 
     elif automaticfeatsel == 1:
         maximum_element_col = np.max(X_sel, 0)
@@ -103,6 +112,7 @@ def preVal(model,f1min,f1max,f1num,f2min,f2max,f2num, automaticfeatsel, X_sel):
         X_pre = np.asarray(X_l) # turns the list in a numpy array
 
     # Calculate preditions and add them together to one array
+    
     y_pre = model.predict(X_pre)
     y_prevt, u1 = np.meshgrid(y_pre,1)
     num_col = np.atleast_2d(X_pre).shape[1] # gets the number of columns of a numpy array
@@ -264,8 +274,8 @@ def plotinputdata(Xm,ym,colheadersidf,cp1a):
             fig.suptitle('3D Visualisation of Input Data Points', fontweight ="bold")
             ax.set_xlabel(colheadersidf[0])
             ax.set_ylabel(colheadersidf[1])
-            ax.set_zlabel(colheadersidf[2]);
-            cb.set_label(colheadersidf[2]);
+            ax.set_zlabel(colheadersidf[len(colheadersidf)-1]);
+            cb.set_label(colheadersidf[len(colheadersidf)-1]);
             plt.savefig("./Visual/3DVisualisationInputData_temp.eps", format='eps',bbox_inches='tight') # saved as eps for high quality pictures
             plt.savefig("./Visual/3DVisualisationInputData_temp.svg", format='svg',bbox_inches='tight')
             plt.savefig("./Visual/3DVisualisationInputData_temp.png", bbox_inches='tight')
@@ -300,7 +310,7 @@ def plotinputdataML(X_train,y_train,X_test, y_test,colheadersidf,testdatasize):
             fig.suptitle('3D Visualisation of Input Data Divided in {:.2f} % Training and {:.2f} % Test Data Set '.format(trainingdatasize,testdatasize*100), fontweight ="bold")
             ax.set_xlabel(colheadersidf[0])
             ax.set_ylabel(colheadersidf[1])
-            ax.set_zlabel(colheadersidf[2]);
+            ax.set_zlabel(colheadersidf[len(colheadersidf)-1]);
             # cb.set_label(colheadersidf[2]);
             plt.savefig("./Visual/3DVisualisationTestandTrainingData_temp.eps",bbox_inches='tight', format='eps') # saved as eps for high quality pictures
             plt.savefig("./Visual/3DVisualisationTestandTrainingData_temp.svg",bbox_inches='tight', format='svg')
