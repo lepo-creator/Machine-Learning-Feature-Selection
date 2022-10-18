@@ -103,8 +103,7 @@ if __name__ == "__main__":
     #     X_train, X_test = X[train_index], X[test_index]
     #     y_train, y_test = y[train_index], y[test_index]
 
-    #Plot Input Data Points
-    print(colheadersidf_sel)
+    # #Plot Input Data Points
     plotinputdata(X_sel,y,colheadersidf_sel,NT3d)
     plotinputdataML(X_train,y_train,X_test, y_test,colheadersidf_sel,testdatasize)
     
@@ -128,7 +127,6 @@ if __name__ == "__main__":
 
         # gets the most important features for the trained grid search model
         X_sel,colheadersidf_sel = getpermutationimportance(model4,X_test,y_test,randomstate, scoring,colheadersidf_sel,idf)
-
         #Divide data in TRAINING DATA and TEST DATA
         X_train_sel2, X_test_sel2, y_train_sel2, y_test_sel2 = train_test_split(X_sel,y, test_size=testdatasize, random_state=randomstate, shuffle=True)
 
@@ -204,7 +202,7 @@ if __name__ == "__main__":
 
     #Creates Predicted Data and plots the ProcessWindow
     D3= preVal(model3,minf1val,maxf1val,f1p,minf2val,maxf2val,f2p,automaticfeatsel, X_sel) # randomstate 42 und 40 
-    priProWin(D3,colheadersidf,DesDen,NT3d,NT2d)
+    priProWin(D3,colheadersidf_sel,DesDen,NT3d,NT2d)
 
 
 

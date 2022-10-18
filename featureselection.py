@@ -14,6 +14,7 @@ from scipy.cluster import hierarchy
 from scipy.spatial.distance import squareform
 import os
 from collections import defaultdict
+from collections import Iterable
 
 #own imports
 from csvpy import *
@@ -36,7 +37,13 @@ plt.rc('ytick', labelsize=12) #fontsize of the y tick labels
 plt.rc('legend', fontsize=12) #fontsize of the legend
 plt.set_loglevel("error") # just shows important error. Ignores warnings.
 
-
+def flatten(lis):
+     for item in lis:
+         if isinstance(item, Iterable) and not isinstance(item, str):
+             for x in flatten(item):
+                 yield x
+         else:        
+             yield item
 
 
 
@@ -106,8 +113,9 @@ def getfeaturecorrelation(X,T,colheadersidf):
     X_sel = X[:, selected_features]
 
     colheadersidf_arr=np.asarray(colheadersidf) # turns a list into a np array
+    selected_features_names = selected_features.append(len(colheadersidf)-1)
+    colheadersidf_sel = list(flatten(colheadersidf_arr[selected_features])) # flattens the list maybe not necessary
 
-    colheadersidf_sel = colheadersidf_arr[selected_features]
     
     return X_sel,colheadersidf_sel
 
@@ -116,7 +124,7 @@ def getfeaturecorrelation(X,T,colheadersidf):
 
 
 
-def getpermutationimportance(model_sel,X_test,y_test,randomstate,scoring,colheadersidf_sel,idf):
+def getpermutationimportance(model_sel,X_test,y_test,randomstate,scoring,colheadersidf_selin,idf):
     r = permutation_importance(model_sel, X_test, y_test,
                                n_repeats=30,
                                random_state=randomstate, scoring=scoring, n_jobs=-1)
@@ -128,8 +136,8 @@ def getpermutationimportance(model_sel,X_test,y_test,randomstate,scoring,colhead
     #               f"         {r.importances_mean[i] :.3f}"
     #               f" +/- {r.importances_std[i] :.3f}")
     
-    
-    
+    colheadersidf_sel=np.asarray(colheadersidf_selin[:len(colheadersidf_selin)]) # turns the list into a numpy array
+
     #Sorts Data
     sorted_meanimportances_a =np.sort(r.importances_mean, axis = 0) # Sorts importances_mean in a descending way
     sorted_stdimportances_a=r.importances_std.ravel()[r.importances_mean.argsort(axis=None).reshape(r.importances_mean.shape)] #Sorts importances standartderivation like importances_mean in a descending way
@@ -138,7 +146,7 @@ def getpermutationimportance(model_sel,X_test,y_test,randomstate,scoring,colhead
     sorted_meanimportances = sorted_meanimportances_a[::-1] # change sorting direction to ascending
     sorted_stdimportances = sorted_stdimportances_a[::-1] # change sorting direction to ascending
     sorted_names = sorted_names_a[::-1] # change sorting direction to ascending
-    
+
     # Counts the values which lie in the given threshold of r.importances_mean[i] - 2 * r.importances_std[i] > 0 to seperate the sorted array
     k=0
     for i in range(len(sorted_meanimportances)):
@@ -148,7 +156,8 @@ def getpermutationimportance(model_sel,X_test,y_test,randomstate,scoring,colhead
     #get the final feature importances
     idf_sel = idf[sorted_names[:k]]
     X_sel2 = idf_sel.iloc[:,:].values
-    colheadersidf_sel2=np.asarray(list(idf_sel.columns.values)) # gets a list of df header strings
+    colheadersidf_sel3=np.asarray(list(idf_sel.columns.values)) # gets a list of df header strings
+    colheadersidf_sel2=np.append(colheadersidf_sel3,colheadersidf_sel[len(colheadersidf_sel)-1])
 
 
 
