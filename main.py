@@ -54,11 +54,11 @@ if __name__ == "__main__":
     DesDen = 95 # minimal possible density, which appear in the process window
     NT3d = 9 #number of ticks on the colorbar on the 3D plot
     NT2d = 9 #number of ticks on the colorbar on the 2D plot
-    randomstate = 28 # sets a random state for the random split funktion to reproduce results #40 30 29 | 42 34 | 28 | 27 2 states
+    randomstate = 42 # sets a random state for the random split funktion to reproduce results #40 30 29 | 42 34 | 28 | 27 2 states
     testdatasize = 0.2 # defines the trainingdatasize of the Trainingsdatasplit in Test and Trainingsdata
     T = 0.2 #Threshold for hierarchical clustering visable in Dendrogram
     scoring = 'neg_mean_absolute_percentage_error'#,'neg_root_mean_squared_error'] # defines the used scoring method
-    automaticfeatsel = 1 # Defines, wether the feature selection appears automatic or manual
+    automaticfeatsel = 0 # Defines, wether the feature selection appears automatic or manual
     incolfea = [6,7,5] # defines the selected features, if automaticfeatsel is 0
 
     
@@ -93,7 +93,7 @@ if __name__ == "__main__":
     if automaticfeatsel == 1:
         X_sel_o,colheadersidf_sel = getfeaturecorrelation(X_minmax,T,colheadersidf,scaler)
     else:
-        X_sel = X_minmax
+        X_sel_o = X
         colheadersidf_sel = colheadersidf
 
     #Normalizses selected features for training ML Model
@@ -112,7 +112,7 @@ if __name__ == "__main__":
     #     X_train, X_test = X[train_index], X[test_index]
     #     y_train, y_test = y[train_index], y[test_index]
 
-    # #Plot Input Data Points
+    # # #Plot Input Data Points
     plotinputdata(X_sel_o,y,colheadersidf_sel,NT3d)
     plotinputdataML(X_train_o,y_train_o,X_test_o, y_test_o,colheadersidf_sel,testdatasize)
     
@@ -141,6 +141,8 @@ if __name__ == "__main__":
 
         #Train same model again
         GS.fit(X_train_sel2,y_train_sel2)
+    elif automaticfeatsel == 0:
+        scaler_p = scaler_c
     
     model3 = GS.best_estimator_
 
@@ -206,8 +208,6 @@ if __name__ == "__main__":
     # print("Mean absolute percentage error 3\n", mape3)
     params3 = model3.get_params()
     print("Model 3 Parameter", params3)
-
-
 
     #Creates Predicted Data and plots the ProcessWindow
     D3= preVal(model3,minf1val,maxf1val,f1p,minf2val,maxf2val,f2p,automaticfeatsel, X_sel, scaler_p) # gerates matrix of predited values and input features

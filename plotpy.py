@@ -10,6 +10,7 @@ import pandas as pd
 import numpy as np
 from itertools import product
 from scipy.spatial import ConvexHull
+from sklearn.preprocessing import MinMaxScaler
 
 #own imports
 from csvpy import *
@@ -52,12 +53,12 @@ def preVal(model,f1min,f1max,f1num,f2min,f2max,f2num, automaticfeatsel, X_sel, s
             # print(u1)
             #Fill an numpy X array in the right form
             numrows=f1num*f2num
-            X_pre = np.zeros((numrows,2))
+            X_pre_o = np.zeros((numrows,2))
             l = 0
             for i in range(f1num):
                 for k in range(f2num):
-                    X_pre[l][0]=f1v[i]
-                    X_pre[l][1]=f2v[k]
+                    X_pre_o[l][0]=f1v[i]
+                    X_pre_o[l][1]=f2v[k]
                     l+=1
             # print("X Predict werte",X_pre)
 
@@ -82,11 +83,11 @@ def preVal(model,f1min,f1max,f1num,f2min,f2max,f2num, automaticfeatsel, X_sel, s
             # print(u1)
             #Fill an numpy X array in the right form
             numrows=f1num*f2num
-            X_pre = np.zeros((numrows,1))
+            X_pre_o = np.zeros((numrows,1))
             l = 0
             for i in range(f1num):
                 for k in range(f2num):
-                    X_pre[l][0]=f1v[i]
+                    X_pre_o[l][0]=f1v[i]
                     
                     l+=1
             # print("X Predict werte",X_pre)
@@ -97,8 +98,10 @@ def preVal(model,f1min,f1max,f1num,f2min,f2max,f2num, automaticfeatsel, X_sel, s
             for i in range(len(maximum_element_col)):
                 a.append(np.linspace(minimum_element_col[i], maximum_element_col[i], f1num)) # adds a linspace array for each feature
             X_l = list(product(*a)) # creates a list with all combinations of features
-            X_pre = np.asarray(X_l) # turns the list in a numpy array
-
+            X_pre_o = np.asarray(X_l) # turns the list in a numpy array
+        
+        scaler_a = MinMaxScaler()
+        X_pre = scaler_a.fit_transform(X_pre_o) # normalises the predicted data
 
     elif automaticfeatsel == 1:
         maximum_element_col = np.max(X_sel, 0)
@@ -108,13 +111,13 @@ def preVal(model,f1min,f1max,f1num,f2min,f2max,f2num, automaticfeatsel, X_sel, s
             a.append(np.linspace(minimum_element_col[i], maximum_element_col[i], f1num)) # adds a linspace array for each feature
         X_l = list(product(*a)) # creates a list with all combinations of features
         X_pre = np.asarray(X_l) # turns the list in a numpy array
+        X_pre_o = scaler_p.inverse_transform(X_pre) # inverse normalization 
 
     # Calculate preditions and add them together to one array
     
     y_pre = model.predict(X_pre)
     y_prevt, u1 = np.meshgrid(y_pre,1)
     num_col = np.atleast_2d(X_pre).shape[1] # gets the number of columns of a numpy array
-    X_pre_o = scaler_p.inverse_transform(X_pre) # inverse normalization 
     D = np.insert(X_pre_o,num_col, y_prevt, axis=1) # inserts a col vector in a numpy array at position num_col      
    
     return D 
