@@ -16,6 +16,7 @@ from sklearn.metrics import mean_absolute_percentage_error
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import GridSearchCV
 from sklearn.neural_network import MLPRegressor
+from sklearn.preprocessing import MinMaxScaler
 import pandas as pd
 import numpy as np
 import os
@@ -53,7 +54,7 @@ if __name__ == "__main__":
     DesDen = 95 # minimal possible density, which appear in the process window
     NT3d = 9 #number of ticks on the colorbar on the 3D plot
     NT2d = 9 #number of ticks on the colorbar on the 2D plot
-    randomstate = 42 # sets a random state for the random split funktion to reproduce results
+    randomstate = 28 # sets a random state for the random split funktion to reproduce results #40 30 29 | 42 34 | 28 | 27 2 states
     testdatasize = 0.2 # defines the trainingdatasize of the Trainingsdatasplit in Test and Trainingsdata
     T = 0.2 #Threshold for hierarchical clustering visable in Dendrogram
     scoring = 'neg_mean_absolute_percentage_error'#,'neg_root_mean_squared_error'] # defines the used scoring method
@@ -78,22 +79,30 @@ if __name__ == "__main__":
         raise ValueError("Variable automaticfeatsel needs to be 0 or 1.")
 
 
-    # print(idf.head())
     colheadersidf=list(idf.columns.values) # gets a list of df header strings
 
     #Spilts the Pandas dataframe in to numpy array Inputs X and result y 
     X = idf.iloc[:,0:le-1].values
     y = idf.iloc[:,le-1:le].values.ravel() #ravel funktion converts the array to a (n,) array instead of an (n,1) vector
 
+    # Normalizses the data for sperman correlation feature selection
+    scaler = MinMaxScaler()
+    X_minmax = scaler.fit_transform(X)
+
     #Remove features that have a close monotonic correlations
     if automaticfeatsel == 1:
-        X_sel,colheadersidf_sel = getfeaturecorrelation(X,T,colheadersidf)
+        X_sel_o,colheadersidf_sel = getfeaturecorrelation(X_minmax,T,colheadersidf,scaler)
     else:
-        X_sel = X
+        X_sel = X_minmax
         colheadersidf_sel = colheadersidf
 
+    #Normalizses selected features for training ML Model
+    scaler_c = MinMaxScaler()
+    X_sel = scaler_c.fit_transform(X_sel_o)
+
     #Divide data in TRAINING DATA and TEST DATA
-    X_train, X_test, y_train, y_test = train_test_split(X_sel,y, test_size=testdatasize, random_state=randomstate, shuffle=True)
+    X_train_o, X_test_o, y_train_o, y_test_o = train_test_split(X_sel_o,y, test_size=testdatasize, random_state=randomstate, shuffle=True) # orgiginal Dataset for Visualisation purposes
+    X_train, X_test, y_train, y_test = train_test_split(X_sel,y, test_size=testdatasize, random_state=randomstate, shuffle=True) #normalized dataset for ML model training purpose
 
 
     # #StratifiedShuffleSplit
@@ -104,8 +113,8 @@ if __name__ == "__main__":
     #     y_train, y_test = y[train_index], y[test_index]
 
     # #Plot Input Data Points
-    plotinputdata(X_sel,y,colheadersidf_sel,NT3d)
-    plotinputdataML(X_train,y_train,X_test, y_test,colheadersidf_sel,testdatasize)
+    plotinputdata(X_sel_o,y,colheadersidf_sel,NT3d)
+    plotinputdataML(X_train_o,y_train_o,X_test_o, y_test_o,colheadersidf_sel,testdatasize)
     
 
     # Train LINEAR REGRESSON MODEL
@@ -126,7 +135,7 @@ if __name__ == "__main__":
         model4 = GS.best_estimator_
 
         # gets the most important features for the trained grid search model
-        X_sel,colheadersidf_sel = getpermutationimportance(model4,X_test,y_test,randomstate, scoring,colheadersidf_sel,idf)
+        X_sel,colheadersidf_sel, scaler_p = getpermutationimportance(model4,X_test,y_test,randomstate, scoring,colheadersidf_sel,idf)
         #Divide data in TRAINING DATA and TEST DATA
         X_train_sel2, X_test_sel2, y_train_sel2, y_test_sel2 = train_test_split(X_sel,y, test_size=testdatasize, random_state=randomstate, shuffle=True)
 
@@ -201,7 +210,7 @@ if __name__ == "__main__":
 
 
     #Creates Predicted Data and plots the ProcessWindow
-    D3= preVal(model3,minf1val,maxf1val,f1p,minf2val,maxf2val,f2p,automaticfeatsel, X_sel) # randomstate 42 und 40 
+    D3= preVal(model3,minf1val,maxf1val,f1p,minf2val,maxf2val,f2p,automaticfeatsel, X_sel, scaler_p) # gerates matrix of predited values and input features
     priProWin(D3,colheadersidf_sel,DesDen,NT3d,NT2d)
 
 

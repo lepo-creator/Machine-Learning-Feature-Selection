@@ -5,8 +5,6 @@ from weakref import ref
 from sklearn import linear_model
 from sklearn.model_selection import train_test_split
 
-
-
 from matplotlib import pyplot as plt
 import pandas as pd
 import numpy as np
@@ -34,7 +32,7 @@ plt.set_loglevel("error") # just shows important error. Ignores warnings.
 
 
 
-def preVal(model,f1min,f1max,f1num,f2min,f2max,f2num, automaticfeatsel, X_sel):
+def preVal(model,f1min,f1max,f1num,f2min,f2max,f2num, automaticfeatsel, X_sel, scaler_p):
     num_col_sel = np.atleast_2d(X_sel).shape[1] # gets the number of columns of a numpy array
     if automaticfeatsel == 0:
         if num_col_sel == 2:
@@ -116,7 +114,8 @@ def preVal(model,f1min,f1max,f1num,f2min,f2max,f2num, automaticfeatsel, X_sel):
     y_pre = model.predict(X_pre)
     y_prevt, u1 = np.meshgrid(y_pre,1)
     num_col = np.atleast_2d(X_pre).shape[1] # gets the number of columns of a numpy array
-    D = np.insert(X_pre,num_col, y_prevt, axis=1) # inserts a col vector in a numpy array at position num_col      
+    X_pre_o = scaler_p.inverse_transform(X_pre) # inverse normalization 
+    D = np.insert(X_pre_o,num_col, y_prevt, axis=1) # inserts a col vector in a numpy array at position num_col      
    
     return D 
 

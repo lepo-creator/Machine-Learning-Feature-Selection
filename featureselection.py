@@ -15,6 +15,7 @@ from scipy.spatial.distance import squareform
 import os
 from collections import defaultdict
 from collections import Iterable
+from sklearn.preprocessing import MinMaxScaler
 
 #own imports
 from csvpy import *
@@ -50,7 +51,7 @@ def flatten(lis):
 
 
 
-def getfeaturecorrelation(X,T,colheadersidf):
+def getfeaturecorrelation(X,T,colheadersidf,scaler):
 
     #Plots 2 Windows next to each other uses window pixel size
     start_x, start_y, dx, dy = (0, 30, 1920, 1080)
@@ -110,14 +111,15 @@ def getfeaturecorrelation(X,T,colheadersidf):
         cluster_id_to_feature_ids[cluster_id].append(idx)
     selected_features = [v[0] for v in cluster_id_to_feature_ids.values()]
 
-    X_sel = X[:, selected_features]
+    X_o = scaler.inverse_transform(X)
+    X_sel_o = X_o[:, selected_features]
 
     colheadersidf_arr=np.asarray(colheadersidf) # turns a list into a np array
     selected_features_names = selected_features.append(len(colheadersidf)-1)
     colheadersidf_sel = list(flatten(colheadersidf_arr[selected_features])) # flattens the list maybe not necessary
 
     
-    return X_sel,colheadersidf_sel
+    return X_sel_o,colheadersidf_sel
 
 
 
@@ -155,7 +157,13 @@ def getpermutationimportance(model_sel,X_test,y_test,randomstate,scoring,colhead
 
     #get the final feature importances
     idf_sel = idf[sorted_names[:k]]
-    X_sel2 = idf_sel.iloc[:,:].values
+    X_sel2_o = idf_sel.iloc[:,:].values
+    
+
+    #normalise the selected data
+    scaler_p = MinMaxScaler()
+    X_sel2 = scaler_p.fit_transform(X_sel2_o)
+
     colheadersidf_sel3=np.asarray(list(idf_sel.columns.values)) # gets a list of df header strings
     colheadersidf_sel2=np.append(colheadersidf_sel3,colheadersidf_sel[len(colheadersidf_sel)-1])
 
@@ -242,7 +250,7 @@ def getpermutationimportance(model_sel,X_test,y_test,randomstate,scoring,colhead
         print("-------------------------------------------------")
         quit()
     
-    return X_sel2,colheadersidf_sel2
+    return X_sel2,colheadersidf_sel2, scaler_p
 
 
 
