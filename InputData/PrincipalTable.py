@@ -79,18 +79,18 @@ def readcsv(filename):
     AvLF= SumLF/(csvreader.line_num-2)
     AvHS= SumHS/(csvreader.line_num-2)
 
-    print("\nColumnsums")
-    print(SumIT)
-    print(SumLF)
-    print(SumHS)
+    # print("\nColumnsums")
+    # print(SumIT)
+    # print(SumLF)
+    # print(SumHS)
 
-    print("\nAverage")
-    print(AvIT)
-    print(AvLF)
-    print(AvHS)
+    # print("\nAverage")
+    # print(AvIT)
+    # print(AvLF)
+    # print(AvHS)
 
-    print("\nLast time step")
-    print(ltime)
+    # print("\nLast time step")
+    # print(ltime)
     row = [i,ltime,AvIT,AvLF,AvHS]
     return row
 # csv file name
@@ -107,9 +107,12 @@ while i <= 59:
     sourcepower = readvalue('Data_AlSi10Mg.csv',i,6)
     scanspeed = readvalue('Data_AlSi10Mg.csv',i,7)
     hatch_distance= readvalue('Data_AlSi10Mg.csv',i,9)
+    layerthickness = readvalue('Data_AlSi10Mg.csv',i,10)
+    laser_density = sourcepower/(scanspeed*hatch_distance*layerthickness)
     row.append(sourcepower)
     row.append(scanspeed)
     row.append(hatch_distance)
+    row.append(laser_density)
 
     rows.append(row)
     i+=1
@@ -117,7 +120,7 @@ while i <= 59:
 
 ###WRITE CSV
 # field names
-fields = ['Number', 'Duration [s]', 'Average Interlayertemperature [°C]', 'Average Lack of fusion volume below 580 °C [%]', 'Average Hot spot volume above 880 °C [%]', "Relative Density [%]","Laser Power [W]","Scan Speed [mm/s]","Hatch distance [mm]"]
+fields = ['Number', 'Duration [s]', 'Average Interlayertemperature [°C]', 'Average Lack of fusion volume below 580 °C [%]', 'Average Hot spot volume above 880 °C [%]', "Relative Density [%]","Laser Power [W]","Scan Speed [mm/s]","Hatch Distance [mm]", "Laser Energy Density E [J/mm^3]"]
  
 # # data rows of csv file
 # rows = [ ['Nikhil', 'COE', '2', '9.0'],

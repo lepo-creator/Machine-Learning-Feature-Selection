@@ -139,7 +139,7 @@ def getpermutationimportance(model_sel,X_test,y_test,randomstate,scoring,colhead
     #               f" +/- {r.importances_std[i] :.3f}")
     
     colheadersidf_sel=np.asarray(colheadersidf_selin[:len(colheadersidf_selin)]) # turns the list into a numpy array
-
+    
     #Sorts Data
     sorted_meanimportances_a =np.sort(r.importances_mean, axis = 0) # Sorts importances_mean in a descending way
     sorted_stdimportances_a=r.importances_std.ravel()[r.importances_mean.argsort(axis=None).reshape(r.importances_mean.shape)] #Sorts importances standartderivation like importances_mean in a descending way
@@ -154,11 +154,21 @@ def getpermutationimportance(model_sel,X_test,y_test,randomstate,scoring,colhead
     for i in range(len(sorted_meanimportances)):
         if r.importances_mean[i] - 2 * r.importances_std[i] > 0:
             k+=1
-
+    
     #get the final feature importances
     idf_sel = idf[sorted_names[:k]]
     X_sel2_o = idf_sel.iloc[:,:].values
+
+    num_col = np.atleast_2d(X_sel2_o).shape[1] # gets the number of columns of a numpy array
     
+    if num_col == 0:
+        print("\n")
+        print("-----INFORMATION AUTOMATIC FEATURE SELECTION-----")
+        print("No suitable features were found by the automatic feature selection. Please change the input data, boundary parameters or the random state. ")
+        print("Program closed.")
+        print("-------------------------------------------------")
+        quit()
+
 
     #normalise the selected data
     scaler_p = MinMaxScaler()
@@ -239,20 +249,34 @@ def getpermutationimportance(model_sel,X_test,y_test,randomstate,scoring,colhead
         mngr.window.setGeometry(x, y, dx, dy)
         x += dx
     plt.show()
-
-    num_col = np.atleast_2d(X_sel2).shape[1] # gets the number of columns of a numpy array
-    
-    if num_col == 0:
-        print("\n")
-        print("-----INFORMATION AUTOMATIC FEATURE SELECTION-----")
-        print("No suitable features were found by the automatic feature selection. Please change the input data, boundary parameters or the random state. ")
-        print("Program closed.")
-        print("-------------------------------------------------")
-        quit()
-    
+        
     return X_sel2,colheadersidf_sel2, scaler_p
 
 
+def creategroups(idf,numberintervals):
+    numberpoints= numberintervals+1
+
+    E_idf = idf.loc[:,['Laser Energy Density E [J/mm^3]']] # gets the specific energy density column
+    E_arr=E_idf.iloc[:,:].values # creates an numpy array out of it
+    E_min = np.min(E_arr) # searches for minimal value
+    E_max = np.max(E_arr) # searches for the maximal value in the energy densities
+    intervalpoints = np.linspace(E_min, E_max, num=numberpoints) # Creates an intervalls out of the min and max value with a spefic a
+    i = 0
+    group_label=np.zeros(E_arr.shape) # creates a array with the correct size with zeros
+    for ele in E_arr:
+        k = 0
+        while True:
+            if k <len(intervalpoints)-1: # used to sort out the last case of the intervalls,because then the following if command is out of range
+                if intervalpoints[k]<=ele[0]<intervalpoints[k+1]: # validates if a point lies inside an interval p1 <= element < p2
+                    group_label[i][0]=k # writes the groupnumber in a pre defined array
+                    break 
+                k+=1
+            else: # for the last case it just add the last element to the previous intervall,because groups with one element are senseless regarding the stratification
+                group_label[i][0]=k-1 
+                break
+        i+=1
+    
+    return group_label, intervalpoints
 
 
 

@@ -244,19 +244,6 @@ def priProWin(D,colheadersidf,desden,cp1a,cp2a):
 
 
 def plotinputdata(Xm,ym,colheadersidf,cp1a):
-    #CHANGE FONT TYPE
-    plt.rc('font',family='Linux Biolinum')
-    #CHANGE FONT SIZES
-    # plt.rc('font', size=12, weight='bold') #controls default text size
-    #plt.rc('font', size=12) #controls default text size
-    plt.rc('figure', titlesize=17.28) #fontsize of the title
-    plt.rc('axes', titlesize=14.4) #fontsize of the title
-    plt.rc('axes', labelsize=12) #fontsize of the x and y labels
-    plt.rc('xtick', labelsize=12) #fontsize of the x tick labels
-    plt.rc('ytick', labelsize=12) #fontsize of the y tick labels
-    plt.rc('legend', fontsize=12) #fontsize of the legend
-    plt.set_loglevel("error") # just shows important error. Ignores warnings.
-
     #Plots 2 Windows next to each other uses window pixel size
     start_x, start_y, dx, dy = (0, 30, 1920, 1080)
     for i in range(1): # determins the number of plotted windows

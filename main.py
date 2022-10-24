@@ -19,7 +19,7 @@ from sklearn.neural_network import MLPRegressor
 from sklearn.preprocessing import MinMaxScaler
 import pandas as pd
 import numpy as np
-import os
+
 
 
 #own imports
@@ -42,7 +42,7 @@ if __name__ == "__main__":
     maxf2val =1000     #maximal possible value of feature 2
     minf2val =2000  #minimal possible value of feature 2
     f2p=100          #Number of points, which are plotted in the borders of min and max value of f2
-    invcol =[1,2,3,4,6,7,8,5] #Selection of specific colum of of csv file last entry needs to be desired quantity (e.g. relative Density)
+    invcol =[1,2,3,4,6,7,8,9,5] #Selection of specific colum of of csv file last entry needs to be desired quantity (e.g. relative Density)
     #The search_space defines the possible hyperparameters of the multilayer perceptron (automatic search and the best performing parameters get elected)
     search_spache = {
         "hidden_layer_sizes":[(1,),(10,),(30,),(100,)],#1,10,100,1000
@@ -58,19 +58,19 @@ if __name__ == "__main__":
     testdatasize = 0.2 # defines the trainingdatasize of the Trainingsdatasplit in Test and Trainingsdata
     T = 0.2 #Threshold for hierarchical clustering visable in Dendrogram
     scoring = 'neg_mean_absolute_percentage_error'#,'neg_root_mean_squared_error'] # defines the used scoring method
-    automaticfeatsel = 0 # Defines, wether the feature selection appears automatic or manual
+    automaticfeatsel = 1 # Defines, wether the feature selection appears automatic or manual
     incolfea = [6,7,5] # defines the selected features, if automaticfeatsel is 0
+    numberintervals = 5 # defines the number intervalls with are used for the stratified shuffle split
 
     
     
     #--------------------------------------------------------------------------------------------------------------------------
     #-----------------------------------------------------CODE-----------------------------------------------------------------
     #--------------------------------------------------------------------------------------------------------------------------
-      
     
     
     if automaticfeatsel == 1:
-        idf=readcsvcol(inputfilepath,invcol) # gets the pandas dataframe#
+        idf=readcsvcol(inputfilepath,invcol) # gets the pandas dataframe
         le = len(invcol)
     elif automaticfeatsel == 0:
         idf=readcsvcol(inputfilepath,incolfea) # gets the pandas dataframe
@@ -100,21 +100,29 @@ if __name__ == "__main__":
     scaler_c = MinMaxScaler()
     X_sel = scaler_c.fit_transform(X_sel_o)
 
-    #Divide data in TRAINING DATA and TEST DATA
-    X_train_o, X_test_o, y_train_o, y_test_o = train_test_split(X_sel_o,y, test_size=testdatasize, random_state=randomstate, shuffle=True) # orgiginal Dataset for Visualisation purposes
-    X_train, X_test, y_train, y_test = train_test_split(X_sel,y, test_size=testdatasize, random_state=randomstate, shuffle=True) #normalized dataset for ML model training purpose
+
+    # #Divide data in TRAINING DATA and TEST DATA susing a random shuffle
+    # X_train_o, X_test_o, y_train_o, y_test_o = train_test_split(X_sel_o,y, test_size=testdatasize, random_state=randomstate, shuffle=True) # orgiginal Dataset for Visualisation purposes
+    # X_train, X_test, y_train, y_test = train_test_split(X_sel,y, test_size=testdatasize, random_state=randomstate, shuffle=True) #normalized dataset for ML model training purpose
 
 
-    # #StratifiedShuffleSplit
-    # sss = StratifiedShuffleSplit(n_splits=1 , test_size=0.9, random_state=randomstate)
-    # for train_index, test_index in sss.split(X, y):
-    #     print("TRAIN:", train_index, "TEST:", test_index)
-    #     X_train, X_test = X[train_index], X[test_index]
-    #     y_train, y_test = y[train_index], y[test_index]
+    #StratifiedShuffleSplit
+    group_label, intervalpoints = creategroups(idf,numberintervals) # places in the regression data points relative density to speific groups to apply stratification
+    sss = StratifiedShuffleSplit(n_splits=1 , test_size=testdatasize, random_state=randomstate) #StratifiedShufflesplit applied 
 
-    # # #Plot Input Data Points
+    for train_index, test_index in sss.split(X_sel, group_label): # splits the normalised data into groups using the fakt that the test and trainingsdata need in members out of every group
+        # print("n_split","TRAIN:", train_index, "TEST:", test_index)
+        # splits the normalised data into groups using the fakt that the test and trainingsdata need in members out of every group
+        X_train, X_test = X_sel[train_index], X_sel[test_index]
+        y_train, y_test = y[train_index], y[test_index]
+        # splits the original data the same way for visualization purporses 
+        X_train_o, X_test_o = X_sel_o[train_index], X_sel_o[test_index]
+        y_train_o, y_test_o = y[train_index], y[test_index]
+
+    #Plot Input Data Points
     plotinputdata(X_sel_o,y,colheadersidf_sel,NT3d)
     plotinputdataML(X_train_o,y_train_o,X_test_o, y_test_o,colheadersidf_sel,testdatasize)
+
     
 
     # Train LINEAR REGRESSON MODEL
