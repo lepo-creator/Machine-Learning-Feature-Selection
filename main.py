@@ -85,7 +85,7 @@ if __name__ == "__main__":
     X = idf.iloc[:,0:le-1].values
     y = idf.iloc[:,le-1:le].values.ravel() #ravel funktion converts the array to a (n,) array instead of an (n,1) vector
 
-    # Normalizses the data for sperman correlation feature selection
+    # Normalizses the data for spearman correlation feature selection
     scaler = MinMaxScaler()
     X_minmax = scaler.fit_transform(X)
 
@@ -120,8 +120,8 @@ if __name__ == "__main__":
         y_train_o, y_test_o = y[train_index], y[test_index]
 
     #Plot Input Data Points
-    plotinputdata(X_sel_o,y,colheadersidf_sel,NT3d)
-    plotinputdataML(X_train_o,y_train_o,X_test_o, y_test_o,colheadersidf_sel,testdatasize)
+    # plotinputdata(X_sel_o,y,colheadersidf_sel,NT3d)
+    # plotinputdataML(X_train_o,y_train_o,X_test_o, y_test_o,colheadersidf_sel,testdatasize)
 
     
 

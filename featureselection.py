@@ -73,7 +73,9 @@ def getfeaturecorrelation(X,T,colheadersidf,scaler):
             # We convert the correlation matrix to a distance matrix before performing
             # hierarchical clustering using Ward's linkage.
             distance_matrix = 1 - np.abs(corr)
-            # print("Distance Matrix",distance_matrix)
+            # creates an output csv file
+            dmdf = pd.DataFrame(distance_matrix, columns=colheadersidf[:len(colheadersidf)-1], index=colheadersidf[:len(colheadersidf)-1])
+            dmdf.to_csv('./Results/DistanceMatrix.csv')
             dist_linkage = hierarchy.ward(squareform(distance_matrix))
             # print("Dist linkage",dist_linkage)
             dendro = hierarchy.dendrogram(
@@ -148,6 +150,11 @@ def getpermutationimportance(model_sel,X_test,y_test,randomstate,scoring,colhead
     sorted_meanimportances = sorted_meanimportances_a[::-1] # change sorting direction to ascending
     sorted_stdimportances = sorted_stdimportances_a[::-1] # change sorting direction to ascending
     sorted_names = sorted_names_a[::-1] # change sorting direction to ascending
+
+    #Stores the sorted mean permutation importance and standart derivation of each feature in one csv file
+    dmdf = pd.DataFrame(sorted_meanimportances.reshape(1,-1),columns=colheadersidf_selin[:len(colheadersidf_selin)-1], index=["Mean Permutation Importance (MPI)"])
+    dmdf2=dmdf.append(pd.DataFrame(sorted_stdimportances.reshape(1,-1), columns=list(dmdf), index=["MPI Standart Derivation"]))
+    dmdf2.to_csv('./Results/PermutationImportances.csv')
 
     # Counts the values which lie in the given threshold of r.importances_mean[i] - 2 * r.importances_std[i] > 0 to seperate the sorted array
     k=0
