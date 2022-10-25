@@ -42,14 +42,16 @@ if __name__ == "__main__":
     maxf2val =1000     #maximal possible value of feature 2
     minf2val =2000  #minimal possible value of feature 2
     f2p=100          #Number of points, which are plotted in the borders of min and max value of f2
-    invcol =[1,2,3,4,6,7,8,9,5] #Selection of specific colum of of csv file last entry needs to be desired quantity (e.g. relative Density)
+    # invcol =[1,2,3,4,6,7,8,9,5] #Selection of specific colum of of csv file last entry needs to be desired quantity (e.g. relative Density)
+    invcol =[1,2,3,4,5] #Selection of specific colum of of csv file last entry needs to be desired quantity (e.g. relative Density)
     #The search_space defines the possible hyperparameters of the multilayer perceptron (automatic search and the best performing parameters get elected)
     search_spache = {
         "hidden_layer_sizes":[(1,),(10,),(30,),(100,)],#1,10,100,1000
         "activation":['relu','identity','logistic','tanh'],#'identity','logistic','tanh','relu'
         "solver":['lbfgs']#'sgd','adam'
     }
-    inputfilepath = "./InputData/collected_data.csv"
+    # inputfilepath = "./InputData/prepared/AlSi10Mg_collected_data.csv"
+    inputfilepath = "./InputData/prepared/AlMgty80_collected_data.csv"
     outputfilepath = "./results/cv_results_ModelTraining.csv"
     DesDen = 95 # minimal possible density, which appear in the process window
     NT3d = 9 #number of ticks on the colorbar on the 3D plot

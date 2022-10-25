@@ -94,6 +94,7 @@ def readcsv(filename):
     row = [i,ltime,AvIT,AvLF,AvHS]
     return row
 # csv file name
+filename2 ="./original/Data_AlSi10Mg.csv"
 rows=[]
 i = 6
 while i <= 59:
@@ -102,12 +103,12 @@ while i <= 59:
     else:
        filename = "D:/Benutzerdateien/OneDrive - tuhh.de/TUHH/Semester 9/Studienarbeit/experimentelle Daten/Simulation/{}/{}_t.csv".format(i,i) 
     row = readcsv(filename)
-    density = readvalue('Data_AlSi10Mg.csv',i,33)
+    density = readvalue(filename2,i,33)
     row.append(density)
-    sourcepower = readvalue('Data_AlSi10Mg.csv',i,6)
-    scanspeed = readvalue('Data_AlSi10Mg.csv',i,7)
-    hatch_distance= readvalue('Data_AlSi10Mg.csv',i,9)
-    layerthickness = readvalue('Data_AlSi10Mg.csv',i,10)
+    sourcepower = readvalue(filename2,i,6)
+    scanspeed = readvalue(filename2,i,7)
+    hatch_distance= readvalue(filename2,i,9)
+    layerthickness = readvalue(filename2,i,10)
     laser_density = sourcepower/(scanspeed*hatch_distance*layerthickness)
     row.append(sourcepower)
     row.append(scanspeed)
@@ -131,7 +132,7 @@ fields = ['Number', 'Duration [s]', 'Average Interlayertemperature [°C]', 'Aver
 #         ['Sahil', 'EP', '2', '9.1']]
  
 # name of csv file
-filename = "D:\Benutzerdateien\OneDrive - tuhh.de\TUHH\Semester 9\Studienarbeit\Python\Maschine Learning\InputData\collected_data.csv"
+filename = ".\prepared\AlSi10Mg_collected_data.csv"
  
 with open(filename,'w', newline='') as csvfile:
     #creating  a csv writer object
