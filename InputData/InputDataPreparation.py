@@ -5,10 +5,14 @@ if __name__ == "__main__":
     df=pd.read_csv("./original/collected_data2.csv", encoding='latin1')
     
     df2=df[df.columns[[4,5,6,7,35,36,37]]]
+    
+    df2['Laser Energy Density E [J/mm^3]']=df2['Laser Power [W]']/(df2['Scan Speed [mm/s]']*df2['Hatch Distance [mm]']*df2['Layer Thickness [Microm.]']) #Formula: sourcepower/(scanspeed*hatch_distance*layerthickness)
     df2['Relative Density [%]'] = df2['Relative density'].fillna(df2['Relative density (Archimedis)']) # fills the na values in relative density with the values from relative density archimedis
     df3 = df2.dropna(subset=['Relative Density [%]']) # deletes all rows, where Reltaive Density [%] has a na value
     del df3['Relative density'] # delets the relative density column 
     del df3['Relative density (Archimedis)'] # delets the relative density archimedis column 
+    
+    # df3['Laser Energy Density E [J/mm^3]']=df3['Laser Power [W]']/(df3['Scan Speed [mm/s]']*df3['Hatch Distance [mm]']*df3['Layer Thickness [Microm.]']) #Formula: sourcepower/(scanspeed*hatch_distance*layerthickness)
     # df3.to_csv("./prepared/TEst.csv")
     gb = df3.groupby('Pulver') # groups the data after pulver type
     listgroups =[gb.get_group(x) for x in gb.groups] # creates a list with groups

@@ -113,6 +113,7 @@ while i <= 59:
     row.append(sourcepower)
     row.append(scanspeed)
     row.append(hatch_distance)
+    row.append(layerthickness)
     row.append(laser_density)
 
     rows.append(row)
@@ -121,7 +122,7 @@ while i <= 59:
 
 ###WRITE CSV
 # field names
-fields = ['Number', 'Duration [s]', 'Average Interlayertemperature [°C]', 'Average Lack of fusion volume below 580 °C [%]', 'Average Hot spot volume above 880 °C [%]', "Relative Density [%]","Laser Power [W]","Scan Speed [mm/s]","Hatch Distance [mm]", "Laser Energy Density E [J/mm^3]"]
+fields = ['Number', 'Duration [s]', 'Average Interlayertemperature [°C]', 'Average Lack of fusion volume below 580 °C [%]', 'Average Hot spot volume above 880 °C [%]', "Relative Density [%]","Laser Power [W]","Scan Speed [mm/s]","Hatch Distance [mm]","Layer Thickness [Microm.]", "Laser Energy Density E [J/mm^3]"]
  
 # # data rows of csv file
 # rows = [ ['Nikhil', 'COE', '2', '9.0'],
