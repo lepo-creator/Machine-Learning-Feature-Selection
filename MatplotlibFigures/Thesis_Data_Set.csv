@@ -1,0 +1,4 @@
+Duration [s],Average Interlayertemperature [°C],Average Lack of fusion volume below 580 °C [%],Average Hot spot volume above 880 °C [%],Relative Density [%],Laser Power [W],Scan Speed [mm/s],Hatch Distance [mm],Layer Thickness [Microm.],Laser Energy Density E [J/mm^3]
+2810.97,86.03195394,4.686549584,8.278094428,97.3,300,1000,0.1,50,0.06
+2740.65,89.1072214,0,96.79072147,99.7,600,1500,0.1,50,0.08
+2705.49,89.53080238,0,99.76359955,99.7,800,2000,0.1,50,0.08

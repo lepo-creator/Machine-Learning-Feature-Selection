@@ -348,6 +348,49 @@ def plotpermutationimportance(X_train,y_train,X_test, y_test,colheadersidf,testd
         x += dx
     plt.show()
 
+def drawNN(file_name ,layers):
+    
+    num_layers = len(layers)
+    max_neurons_per_layer = np.amax(layers)
+    dist = 2*max(1, max_neurons_per_layer/num_layers)
+    y_shift = layers/2-.5
+    rad = .3
+
+    fig = plt.figure(frameon=False)
+    ax = fig.add_axes([0, 0, 1, 1])
+    ax.axis('off')
+
+    # Draw all circles
+    for i in range(num_layers):
+        for j in range(layers[i]):
+            circle = plt.Circle((i*dist, j-y_shift[i]),
+                                radius=rad, fill=False)
+            ax.add_patch(circle)
+
+    # Draw the lines between the layers.
+    for i in range(num_layers-1):
+        for j in range(layers[i]):
+            for k in range(layers[i+1]):
+                angle = np.arctan((j-k+y_shift[i+1]-y_shift[i]) / dist)
+                x_adjust = rad * np.cos(angle)
+                y_adjust = rad * np.sin(angle)
+                line = plt.Line2D((i*dist+x_adjust,
+                                    (i+1)*dist-x_adjust),
+                                    (j-y_shift[i]-y_adjust,
+                                    k-y_shift[i+1]+y_adjust),
+                                    lw=2 / np.sqrt(layers[i]
+                                                    + layers[i+1]),
+                                    color='b')
+                ax.add_line(line)
+
+    ax.axis('scaled')
+
+    if file_name is None:
+        plt.show()
+    else:
+        fig.savefig(file_name, bbox_inches='tight', format='pdf')
+        plt.show()
+
 
 if __name__ == "__main__":
     idf=readcsvcol("./InputData/collected_data.csv",[3,4,5])

@@ -1,8 +1,7 @@
 #----MachineLearning_ProcessWindow_Prediction.py-------------------------------------------------------------------------------
 #----Machine Learning Algorithm to predict a process window of Laser Powder Bed Fusion processes with physics simulation-------
 #----input data from Autodesk Netfabb Simulations------------------------------------------------------------------------------ 
-#----It is built in simple 2-dimensional space using 2D raycasting tool--------------------------------------------------------
-#----Author: Leon Pohl, Bachelor's Student TUHH Mechatronics ------------------------------------------------------------------
+#----Author: Leon Pohl, Master's Student TUHH Mechatronics --------------------------------------------------------------------
 #----Date: From mid of September 2022 to mid of Dezember 2022------------------------------------------------------------------
 #----Research Project Mechatronics---------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------------------------------
@@ -19,8 +18,6 @@ from sklearn.neural_network import MLPRegressor
 from sklearn.preprocessing import MinMaxScaler
 import pandas as pd
 import numpy as np
-
-
 
 #own imports
 from plotpy import *
@@ -93,7 +90,7 @@ if __name__ == "__main__":
 
     #Remove features that have a close monotonic correlations
     if automaticfeatsel == 1:
-        X_sel_o,colheadersidf_sel = getfeaturecorrelation(X_minmax,T,colheadersidf,scaler)
+        X_sel_o,colheadersidf_sel = getFeatureCorrelation(X_minmax,T,colheadersidf,scaler)
     else:
         X_sel_o = X
         colheadersidf_sel = colheadersidf
@@ -145,7 +142,7 @@ if __name__ == "__main__":
         model4 = GS.best_estimator_
 
         # gets the most important features for the trained grid search model
-        X_sel,colheadersidf_sel, scaler_p = getpermutationimportance(model4,X_test,y_test,randomstate, scoring,colheadersidf_sel,idf)
+        X_sel,colheadersidf_sel, scaler_p = getPermutationImportance(model4,X_test,y_test,randomstate, scoring,colheadersidf_sel,idf)
         #Divide data in TRAINING DATA and TEST DATA
         X_train_sel2, X_test_sel2, y_train_sel2, y_test_sel2 = train_test_split(X_sel,y, test_size=testdatasize, random_state=randomstate, shuffle=True)
 
@@ -219,9 +216,13 @@ if __name__ == "__main__":
     params3 = model3.get_params()
     print("Model 3 Parameter", params3)
 
+    #Plots the neuronal Network
+    layers=np.array([len(colheadersidf_sel)-1,params3['hidden_layer_sizes'][0],1])
+    drawNN('./Results/NNModel.pdf',layers)
+    # draw('./Model.pdf', np.array([1,3,4]) )
     #Creates Predicted Data and plots the ProcessWindow
-    D3= preVal(model3,minf1val,maxf1val,f1p,minf2val,maxf2val,f2p,automaticfeatsel, X_sel, scaler_p) # gerates matrix of predited values and input features
-    priProWin(D3,colheadersidf_sel,DesDen,NT3d,NT2d)
+    # D3= preVal(model3,minf1val,maxf1val,f1p,minf2val,maxf2val,f2p,automaticfeatsel, X_sel, scaler_p) # gerates matrix of predited values and input features
+    # priProWin(D3,colheadersidf_sel,DesDen,NT3d,NT2d)
 
 
 

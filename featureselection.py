@@ -51,7 +51,7 @@ def flatten(lis):
 
 
 
-def getfeaturecorrelation(X,T,colheadersidf,scaler):
+def getFeatureCorrelation(X,T,colheadersidf,scaler):
 
     #Plots 2 Windows next to each other uses window pixel size
     start_x, start_y, dx, dy = (0, 30, 1920, 1080)
@@ -128,7 +128,7 @@ def getfeaturecorrelation(X,T,colheadersidf,scaler):
 
 
 
-def getpermutationimportance(model_sel,X_test,y_test,randomstate,scoring,colheadersidf_selin,idf):
+def getPermutationImportance(model_sel,X_test,y_test,randomstate,scoring,colheadersidf_selin,idf):
     r = permutation_importance(model_sel, X_test, y_test,
                                n_repeats=30,
                                random_state=randomstate, scoring=scoring, n_jobs=-1)
