@@ -64,12 +64,12 @@ def getFeatureCorrelation(X,T,colheadersidf,scaler):
         if i == 0:
             # #Get feature correlation
             corr = spearmanr(X).correlation
-            # corr = pearsonr(X,y).correlation
-
             # Ensure the correlation matrix is symmetric
             corr = (corr + corr.T) / 2
             np.fill_diagonal(corr, 1)
-
+            # creates an output csv file
+            cmdf = pd.DataFrame(corr, columns=colheadersidf[:len(colheadersidf)-1], index=colheadersidf[:len(colheadersidf)-1])
+            cmdf.to_csv('./Results/CorrelationMatrix.csv')
             # We convert the correlation matrix to a distance matrix before performing
             # hierarchical clustering using Ward's linkage.
             distance_matrix = 1 - np.abs(corr)
@@ -108,16 +108,20 @@ def getFeatureCorrelation(X,T,colheadersidf,scaler):
 
     #Select a feature for each cluster
     cluster_ids = hierarchy.fcluster(dist_linkage, t=T, criterion="distance")
+    print("Cluster_ids", cluster_ids)
     cluster_id_to_feature_ids = defaultdict(list)
+    print("cluster_id_to_feature_ids be3fore ", cluster_id_to_feature_ids)
     for idx, cluster_id in enumerate(cluster_ids):
         cluster_id_to_feature_ids[cluster_id].append(idx)
+    print("cluster_id_to_feature_ids after ", cluster_id_to_feature_ids)
     selected_features = [v[0] for v in cluster_id_to_feature_ids.values()]
+    print("selected_features", selected_features)
 
     X_o = scaler.inverse_transform(X)
     X_sel_o = X_o[:, selected_features]
 
     colheadersidf_arr=np.asarray(colheadersidf) # turns a list into a np array
-    selected_features_names = selected_features.append(len(colheadersidf)-1)
+    selected_features.append(len(colheadersidf)-1)
     colheadersidf_sel = list(flatten(colheadersidf_arr[selected_features])) # flattens the list maybe not necessary
 
     
@@ -268,6 +272,7 @@ def creategroups(idf,numberintervals):
     E_min = np.min(E_arr) # searches for minimal value
     E_max = np.max(E_arr) # searches for the maximal value in the energy densities
     intervalpoints = np.linspace(E_min, E_max, num=numberpoints) # Creates an intervalls out of the min and max value with a spefic a
+    print("Intervall points", intervalpoints)
     i = 0
     group_label=np.zeros(E_arr.shape) # creates a array with the correct size with zeros
     for ele in E_arr:
@@ -282,7 +287,7 @@ def creategroups(idf,numberintervals):
                 group_label[i][0]=k-1 
                 break
         i+=1
-    
+    print("The group labels",group_label)
     return group_label, intervalpoints
 
 

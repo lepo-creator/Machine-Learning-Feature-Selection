@@ -109,7 +109,7 @@ while i <= 59:
     scanspeed = readvalue(filename2,i,7)
     hatch_distance= readvalue(filename2,i,9)
     layerthickness = readvalue(filename2,i,10)
-    laser_density = sourcepower/(scanspeed*hatch_distance*layerthickness)
+    laser_density = sourcepower/(scanspeed*hatch_distance*layerthickness*10**(-3))
     row.append(sourcepower)
     row.append(scanspeed)
     row.append(hatch_distance)

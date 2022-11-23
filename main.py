@@ -39,8 +39,9 @@ if __name__ == "__main__":
     maxf2val =1000     #maximal possible value of feature 2
     minf2val =2000  #minimal possible value of feature 2
     f2p=100          #Number of points, which are plotted in the borders of min and max value of f2
-    # invcol =[1,2,3,4,6,7,8,9,5] #Selection of specific colum of of csv file last entry needs to be desired quantity (e.g. relative Density)
-    invcol =[1,2,3,4,5] #Selection of specific colum of of csv file last entry needs to be desired quantity (e.g. relative Density)
+    invcol =[0,1,2,3,5,6,7,9,4] #Selection of specific colum of of csv file last entry needs to be desired quantity (e.g. relative Density)
+    # Important that constant features like a constant layer thickness need to be ignored. Otherwise this leads to an error.
+    # invcol =[1,2,3,4,5] #Selection of specific colum of of csv file last entry needs to be desired quantity (e.g. relative Density)
     #The search_space defines the possible hyperparameters of the multilayer perceptron (automatic search and the best performing parameters get elected)
     search_spache = {
         "hidden_layer_sizes":[(1,),(10,),(30,),(100,)],#1,10,100,1000
@@ -48,19 +49,19 @@ if __name__ == "__main__":
         "solver":['lbfgs']#'sgd','adam'
     }
     # inputfilepath = "./InputData/prepared/AlSi10Mg_collected_data.csv"
-    inputfilepath = "./InputData/prepared/AlMgty80_collected_data.csv"
+    inputfilepath = "./InputData/prepared/AlSi10Mg_collected_data.csv"
     outputfilepath = "./results/cv_results_ModelTraining.csv"
     DesDen = 95 # minimal possible density, which appear in the process window
     NT3d = 9 #number of ticks on the colorbar on the 3D plot
     NT2d = 9 #number of ticks on the colorbar on the 2D plot
-    randomstate = 42 # sets a random state for the random split funktion to reproduce results #40 30 29 | 42 34 | 28 | 27 2 states
+    randomstate = 40 # sets a random state for the random split funktion to reproduce results #40 30 29 | 42 34 | 28 | 27 2 states
     testdatasize = 0.2 # defines the trainingdatasize of the Trainingsdatasplit in Test and Trainingsdata
     T = 0.2 #Threshold for hierarchical clustering visable in Dendrogram
-    scoring = 'neg_mean_absolute_percentage_error'#,'neg_root_mean_squared_error'] # defines the used scoring method
+    scoring = 'neg_root_mean_squared_error' #'neg_mean_absolute_percentage_error'#,'neg_root_mean_squared_error'] # defines the used scoring method
     automaticfeatsel = 1 # Defines, wether the feature selection appears automatic or manual
     incolfea = [6,7,5] # defines the selected features, if automaticfeatsel is 0
     numberintervals = 5 # defines the number intervalls with are used for the stratified shuffle split
-
+    pathInputData = './Visual/3DVisualisationInputData_temp'
     
     
     #--------------------------------------------------------------------------------------------------------------------------
@@ -83,7 +84,6 @@ if __name__ == "__main__":
     #Spilts the Pandas dataframe in to numpy array Inputs X and result y 
     X = idf.iloc[:,0:le-1].values
     y = idf.iloc[:,le-1:le].values.ravel() #ravel funktion converts the array to a (n,) array instead of an (n,1) vector
-
     # Normalizses the data for spearman correlation feature selection
     scaler = MinMaxScaler()
     X_minmax = scaler.fit_transform(X)
@@ -119,8 +119,8 @@ if __name__ == "__main__":
         y_train_o, y_test_o = y[train_index], y[test_index]
 
     #Plot Input Data Points
-    # plotinputdata(X_sel_o,y,colheadersidf_sel,NT3d)
-    # plotinputdataML(X_train_o,y_train_o,X_test_o, y_test_o,colheadersidf_sel,testdatasize)
+    plotinputdata(X_sel_o,y,colheadersidf_sel,NT3d,pathInputData)
+    plotinputdataML(X_train_o,y_train_o,X_test_o, y_test_o,colheadersidf_sel,testdatasize)
 
     
 
@@ -142,9 +142,16 @@ if __name__ == "__main__":
         model4 = GS.best_estimator_
 
         # gets the most important features for the trained grid search model
-        X_sel,colheadersidf_sel, scaler_p = getPermutationImportance(model4,X_test,y_test,randomstate, scoring,colheadersidf_sel,idf)
+        X_sel2,colheadersidf_sel, scaler_p = getPermutationImportance(model4,X_test,y_test,randomstate, scoring,colheadersidf_sel,idf)
         #Divide data in TRAINING DATA and TEST DATA
-        X_train_sel2, X_test_sel2, y_train_sel2, y_test_sel2 = train_test_split(X_sel,y, test_size=testdatasize, random_state=randomstate, shuffle=True)
+        # X_train_sel2, X_test_sel2, y_train_sel2, y_test_sel2 = train_test_split(X_sel2,y, test_size=testdatasize, random_state=randomstate, shuffle=True)
+
+        for train_index, test_index in sss.split(X_sel2, group_label):
+             # splits the normalised data into groups using the fakt that the test and trainingsdata need in members out of every group
+        # print("n_split","TRAIN:", train_index, "TEST:", test_index)
+        # splits the normalised data into groups using the fakt that the test and trainingsdata need in members out of every group
+            X_train_sel2, X_test_sel2 = X_sel[train_index], X_sel[test_index]
+            y_train_sel2, y_test_sel2 = y[train_index], y[test_index]
 
         #Train same model again
         GS.fit(X_train_sel2,y_train_sel2)

@@ -163,6 +163,8 @@ if __name__ == '__main__':
     plt.ylabel("Relative Density [%]")
     # plt.title("Linear Regression")
     #plt.savefig("linechart_Duration_env1.eps", format='eps',bbox_inches='tight') # saved as eps for high quality pictures
-    plt.savefig("D:/Benutzerdateien/OneDrive - tuhh.de/TUHH/Semester 9/Studienarbeit/LateX/02_TheoreticalBackground/fig/MachineLearning/LinearRegressionChart.eps", format='eps',bbox_inches='tight') # saved as eps for high quality pictures
+    # plt.savefig("D:/Benutzerdateien/OneDrive - tuhh.de/TUHH/Semester 9/Studienarbeit/LateX/02_TheoreticalBackground/fig/MachineLearning/LinearRegressionChart.eps", format='eps',bbox_inches='tight') # saved as eps for high quality pictures
     plt.savefig("D:/Benutzerdateien/OneDrive - tuhh.de/TUHH/Semester 9/Studienarbeit/LateX/02_TheoreticalBackground/fig/MachineLearning/LinearRegressionChart.svg", format='svg',bbox_inches='tight') # saved as eps for high quality pictures
+    
+    plt.savefig("D:/Benutzerdateien/OneDrive - tuhh.de/TUHH/Semester 9/Studienarbeit/LateX/02_TheoreticalBackground/fig/MachineLearning/LinearRegressionChart.pdf", format='pdf',bbox_inches='tight') # saved as eps for high quality pictures
     plt.show()

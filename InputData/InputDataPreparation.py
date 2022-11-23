@@ -6,7 +6,7 @@ if __name__ == "__main__":
     
     df2=df[df.columns[[4,5,6,7,35,36,37]]]
     
-    df2['Laser Energy Density E [J/mm^3]']=df2['Laser Power [W]']/(df2['Scan Speed [mm/s]']*df2['Hatch Distance [mm]']*df2['Layer Thickness [Microm.]']) #Formula: sourcepower/(scanspeed*hatch_distance*layerthickness)
+    df2['Laser Energy Density E [J/mm^3]']=df2['Laser Power [W]']/(df2['Scan Speed [mm/s]']*df2['Hatch Distance [mm]']*df2['Layer Thickness [Microm.]']*10**(-3)) #Formula: sourcepower/(scanspeed*hatch_distance*layerthickness)
     df2['Relative Density [%]'] = df2['Relative density'].fillna(df2['Relative density (Archimedis)']) # fills the na values in relative density with the values from relative density archimedis
     df3 = df2.dropna(subset=['Relative Density [%]']) # deletes all rows, where Reltaive Density [%] has a na value
     del df3['Relative density'] # delets the relative density column 

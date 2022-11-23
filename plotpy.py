@@ -243,7 +243,7 @@ def priProWin(D,colheadersidf,desden,cp1a,cp2a):
 
 
 
-def plotinputdata(Xm,ym,colheadersidf,cp1a):
+def plotinputdata(Xm,ym,colheadersidf,cp1a ,path):
     #Plots 2 Windows next to each other uses window pixel size
     start_x, start_y, dx, dy = (0, 30, 1920, 1080)
     for i in range(1): # determins the number of plotted windows
@@ -265,9 +265,9 @@ def plotinputdata(Xm,ym,colheadersidf,cp1a):
             ax.set_ylabel(colheadersidf[1])
             ax.set_zlabel(colheadersidf[len(colheadersidf)-1]);
             cb.set_label(colheadersidf[len(colheadersidf)-1]);
-            plt.savefig("./Visual/3DVisualisationInputData_temp.eps", format='eps',bbox_inches='tight') # saved as eps for high quality pictures
-            plt.savefig("./Visual/3DVisualisationInputData_temp.svg", format='svg',bbox_inches='tight')
-            plt.savefig("./Visual/3DVisualisationInputData_temp.png", bbox_inches='tight')
+            plt.savefig(path+'.pdf', format='pdf',bbox_inches='tight') # saved as eps for high quality pictures
+            # plt.savefig(path+'.svg', format='svg',bbox_inches='tight')
+            # plt.savefig(path+'.png', bbox_inches='tight')
             
 
         mngr = plt.get_current_fig_manager()
