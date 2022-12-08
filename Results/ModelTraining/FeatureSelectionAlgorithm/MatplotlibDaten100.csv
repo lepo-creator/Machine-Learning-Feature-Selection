@@ -1,0 +1,155 @@
+,Randomstate,RMSE,MAPE,MSE,Training RMSE,Feat Corr Num,Feat Permu Num,Feat Corr Name,Feat Permu Name
+0,1,7.585140099,0.041304736,57.53435033,0.970802255,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Scan Speed [mm/s]' 'Hatch Distance [mm]'
+ 'Duration [s]']"
+1,2,0.523362264,0.003534785,0.273908059,1.378893776,5,5,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Average Interlayertemperature [°C]' 'Duration [s]'
+ 'Hatch Distance [mm]' 'Scan Speed [mm/s]']"
+2,3,0.839319882,0.005836508,0.704457865,1.949402662,5,3,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]' 'Duration [s]' 'Scan Speed [mm/s]']
+3,4,3.378309207,0.026391151,11.4129731,3.956752148,5,2,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]' 'Hatch Distance [mm]']
+4,5,,,,,5,0,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",X
+5,6,0.809768897,0.004344549,0.655725666,0.879508465,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Scan Speed [mm/s]' 'Hatch Distance [mm]'
+ 'Average Interlayertemperature [°C]']"
+6,7,0.850359227,0.004741691,0.723110815,1.719919642,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Scan Speed [mm/s]' 'Hatch Distance [mm]'
+ 'Average Interlayertemperature [°C]']"
+7,8,1.988990113,0.019806059,3.956081671,4.535027209,5,1,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Scan Speed [mm/s]']
+8,9,0.215488176,0.001526791,0.046435154,1.683313962,5,3,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]' 'Hatch Distance [mm]' 'Scan Speed [mm/s]']
+9,10,0.871977721,0.005521135,0.760345145,1.598259629,5,3,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Scan Speed [mm/s]' 'Laser Power [W]' 'Hatch Distance [mm]']
+10,11,0.719638973,0.004325495,0.517880252,0.980350446,5,5,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Scan Speed [mm/s]' 'Laser Power [W]' 'Hatch Distance [mm]'
+ 'Duration [s]' 'Average Interlayertemperature [°C]']"
+11,12,5.847031786,0.029047221,34.1877807,0.569581792,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Duration [s]' 'Scan Speed [mm/s]'
+ 'Hatch Distance [mm]']"
+12,13,0.727852161,0.003928591,0.529768768,1.695047215,5,5,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Scan Speed [mm/s]' 'Duration [s]'
+ 'Average Interlayertemperature [°C]' 'Hatch Distance [mm]']"
+13,14,5.988719811,0.02842132,35.86476498,0.809264211,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Average Interlayertemperature [°C]'
+ 'Scan Speed [mm/s]' 'Duration [s]']"
+14,15,0.941046308,0.005078175,0.885568154,1.688401752,5,5,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Hatch Distance [mm]' 'Scan Speed [mm/s]' 'Laser Power [W]'
+ 'Average Interlayertemperature [°C]' 'Duration [s]']"
+15,16,2.014236788,0.010720119,4.057149836,0.714797447,5,3,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]' 'Scan Speed [mm/s]' 'Hatch Distance [mm]']
+16,17,0.426720316,0.002394459,0.182090228,1.230665327,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Scan Speed [mm/s]' 'Laser Power [W]' 'Duration [s]'
+ 'Hatch Distance [mm]']"
+17,18,4.921389832,0.034514815,24.22007788,3.724730175,5,1,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]']
+18,19,2.155098893,0.009921068,4.64445124,0.917437189,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Average Interlayertemperature [°C]' 'Laser Power [W]'
+ 'Hatch Distance [mm]' 'Scan Speed [mm/s]']"
+19,20,7.788081573,0.040798383,60.65421459,2.251655715,5,2,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]' 'Scan Speed [mm/s]']
+20,21,1.97502954,0.01637034,3.900741685,4.297009378,5,2,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Scan Speed [mm/s]' 'Duration [s]']
+21,22,0.656452253,0.003223266,0.430929561,1.10933501,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Hatch Distance [mm]' 'Scan Speed [mm/s]'
+ 'Duration [s]']"
+22,23,0.3905923,0.003577301,0.152562345,4.345649796,5,2,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Scan Speed [mm/s]' 'Laser Power [W]']
+23,24,3.773936924,0.020456519,14.24259991,4.128904268,5,1,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]']
+24,25,0.697288178,0.003964449,0.486210803,1.290029535,5,5,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Hatch Distance [mm]'
+ 'Average Interlayertemperature [°C]' 'Scan Speed [mm/s]' 'Duration [s]']"
+25,26,1.209165306,0.007653701,1.462080738,4.113292408,5,2,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Hatch Distance [mm]' 'Laser Power [W]']
+26,27,3.104485004,0.015600285,9.637827141,2.020361708,5,5,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Duration [s]' 'Hatch Distance [mm]' 'Scan Speed [mm/s]'
+ 'Laser Power [W]' 'Average Interlayertemperature [°C]']"
+27,28,3.410129464,0.029554343,11.62898296,4.293896186,5,1,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]']
+28,29,2.463922469,0.022562342,6.070913935,4.576937426,5,1,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]']
+29,30,0.583705031,0.003342653,0.340711564,1.601425519,5,3,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]' 'Hatch Distance [mm]' 'Scan Speed [mm/s]']
+30,31,1.894099047,0.011860453,3.587611198,4.769497362,5,1,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Duration [s]']
+31,32,8.450885606,0.047236269,71.41746752,0.737928946,5,5,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Scan Speed [mm/s]'
+ 'Average Interlayertemperature [°C]' 'Hatch Distance [mm]' 'Duration [s]']"
+32,33,,,,,5,0,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",X
+33,34,1.251851786,0.008134357,1.567132893,1.791318395,5,5,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Scan Speed [mm/s]' 'Laser Power [W]' 'Hatch Distance [mm]'
+ 'Duration [s]' 'Average Interlayertemperature [°C]']"
+34,35,0.674542226,0.003809032,0.455007215,0.829299348,5,3,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Hatch Distance [mm]' 'Scan Speed [mm/s]' 'Laser Power [W]']
+35,36,4.679738349,0.021886823,21.89995101,1.484594257,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Hatch Distance [mm]' 'Scan Speed [mm/s]'
+ 'Average Interlayertemperature [°C]']"
+36,37,3.772020364,0.02014686,14.22813763,1.13700821,5,3,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Average Interlayertemperature [°C]'
+ 'Scan Speed [mm/s]']"
+37,38,5.811935357,0.031297462,33.77859259,1.136067342,5,3,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]' 'Scan Speed [mm/s]' 'Hatch Distance [mm]']
+38,39,1.084753042,0.00503955,1.176689163,2.042346166,5,3,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Scan Speed [mm/s]'
+ 'Average Interlayertemperature [°C]']"
+39,40,3.679075722,0.025515438,13.53559817,4.071951816,5,2,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]' 'Hatch Distance [mm]']
+40,41,0.38920772,0.002930204,0.151482649,1.935895252,5,3,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Hatch Distance [mm]'
+ 'Average Interlayertemperature [°C]']"
+41,42,2.792194374,0.016012854,7.79634942,1.692495721,5,5,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Scan Speed [mm/s]' 'Hatch Distance [mm]'
+ 'Duration [s]' 'Average Interlayertemperature [°C]']"
+42,43,0.792448111,0.005615554,0.627974009,1.779656386,5,5,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Scan Speed [mm/s]' 'Hatch Distance [mm]'
+ 'Average Interlayertemperature [°C]' 'Duration [s]']"
+43,44,3.026611575,0.023977134,9.160377628,4.752179483,5,2,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]' 'Hatch Distance [mm]']
+44,45,3.396758621,0.019079337,11.53796913,0.866514397,5,3,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]' 'Duration [s]' 'Average Interlayertemperature [°C]']
+45,46,1.331600368,0.005893396,1.77315954,1.195427358,5,5,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Hatch Distance [mm]'
+ 'Average Interlayertemperature [°C]' 'Duration [s]' 'Scan Speed [mm/s]']"
+46,47,0.453216528,0.00246209,0.205405221,1.133693428,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Hatch Distance [mm]' 'Scan Speed [mm/s]'
+ 'Average Interlayertemperature [°C]']"
+47,48,0.487902586,0.002774843,0.238048933,1.380761011,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Hatch Distance [mm]' 'Duration [s]'
+ 'Scan Speed [mm/s]']"
+48,49,0.633493565,0.004418525,0.401314097,1.455760895,5,3,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Average Interlayertemperature [°C]'
+ 'Hatch Distance [mm]']"
+49,50,1.399144247,0.009683615,1.957604624,0.847817444,5,5,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Hatch Distance [mm]' 'Duration [s]'
+ 'Average Interlayertemperature [°C]' 'Scan Speed [mm/s]']"
+50,51,0.918692221,0.006025569,0.843995397,1.340311485,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Scan Speed [mm/s]' 'Hatch Distance [mm]'
+ 'Average Interlayertemperature [°C]']"
+51,52,3.185854374,0.017528062,10.14966809,0.911737893,5,2,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]' 'Average Interlayertemperature [°C]']
+52,53,3.035261833,0.021428267,9.212814393,4.503467973,5,1,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]']
+53,54,0.548134107,0.00384558,0.300451,1.477863451,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Hatch Distance [mm]' 'Scan Speed [mm/s]'
+ 'Duration [s]']"
+54,55,0.814854819,0.005272251,0.663988377,1.695632619,5,3,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Duration [s]' 'Laser Power [W]' 'Average Interlayertemperature [°C]']
+55,56,,,,,5,0,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",X
+56,57,0.626522989,0.004126737,0.392531056,1.126920193,5,5,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Duration [s]' 'Hatch Distance [mm]'
+ 'Scan Speed [mm/s]' 'Average Interlayertemperature [°C]']"
+57,58,2.565316241,0.014672272,6.580847416,4.037842817,5,2,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]' 'Scan Speed [mm/s]']
+58,59,4.062022463,0.021716243,16.50002649,0.988822003,5,2,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]' 'Average Interlayertemperature [°C]']
+59,60,4.193192398,0.0206158,17.58286248,1.692582449,5,5,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Hatch Distance [mm]' 'Scan Speed [mm/s]'
+ 'Duration [s]' 'Average Interlayertemperature [°C]']"
+60,61,0.332103392,0.002351955,0.110292663,1.543337879,5,5,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Scan Speed [mm/s]' 'Hatch Distance [mm]'
+ 'Duration [s]' 'Average Interlayertemperature [°C]']"
+61,62,0.950225931,0.005770004,0.90292932,0.740327831,5,5,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Scan Speed [mm/s]' 'Hatch Distance [mm]'
+ 'Average Interlayertemperature [°C]' 'Duration [s]']"
+62,63,3.320265531,0.017720836,11.02416319,1.125291983,5,3,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]' 'Scan Speed [mm/s]' 'Hatch Distance [mm]']
+63,64,1.984341796,0.019515064,3.937612365,4.481101698,5,2,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]' 'Scan Speed [mm/s]']
+64,65,1.417990426,0.007149252,2.010696847,1.46442341,5,3,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Average Interlayertemperature [°C]' 'Laser Power [W]'
+ 'Scan Speed [mm/s]']"
+65,66,0.344715373,0.002321459,0.118828688,1.451496849,5,5,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Scan Speed [mm/s]' 'Hatch Distance [mm]' 'Laser Power [W]'
+ 'Average Interlayertemperature [°C]' 'Duration [s]']"
+66,67,0.341333923,0.002477182,0.116508847,2.29317333,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Average Interlayertemperature [°C]' 'Duration [s]'
+ 'Hatch Distance [mm]']"
+67,68,1.354477026,0.010508112,1.834608014,1.864649838,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Hatch Distance [mm]'
+ 'Average Interlayertemperature [°C]' 'Scan Speed [mm/s]']"
+68,69,4.021396756,0.020841377,16.17163187,0.920489906,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Scan Speed [mm/s]' 'Hatch Distance [mm]'
+ 'Duration [s]']"
+69,70,1.507865624,0.007557448,2.273658741,0.890802489,5,2,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]' 'Average Interlayertemperature [°C]']
+70,71,5.470927902,0.027914254,29.9310521,0.752954123,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Duration [s]' 'Average Interlayertemperature [°C]'
+ 'Scan Speed [mm/s]']"
+71,72,7.373857107,0.045126937,54.37376864,1.733405308,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Average Interlayertemperature [°C]'
+ 'Hatch Distance [mm]' 'Scan Speed [mm/s]']"
+72,73,2.711422576,0.016928056,7.351812386,4.130862281,5,1,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]']
+73,74,1.95128204,0.01919031,3.807501598,4.340818604,5,1,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]']
+74,75,,,,,5,0,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",X
+75,76,1.371532227,0.007524079,1.88110065,1.385221582,5,3,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Scan Speed [mm/s]' 'Laser Power [W]' 'Hatch Distance [mm]']
+76,77,1.138670097,0.009194159,1.296569589,0.705799585,5,5,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Scan Speed [mm/s]' 'Duration [s]'
+ 'Hatch Distance [mm]' 'Average Interlayertemperature [°C]']"
+77,78,2.515062777,0.013716494,6.325540771,1.40410384,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Average Interlayertemperature [°C]'
+ 'Scan Speed [mm/s]' 'Hatch Distance [mm]']"
+78,79,1.066611328,0.006034025,1.137659726,1.078037831,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Scan Speed [mm/s]' 'Laser Power [W]' 'Hatch Distance [mm]'
+ 'Average Interlayertemperature [°C]']"
+79,80,0.890720513,0.004094432,0.793383032,1.324323446,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Scan Speed [mm/s]' 'Duration [s]'
+ 'Hatch Distance [mm]']"
+80,81,3.543909265,0.023369896,12.55929288,0.409688557,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Duration [s]' 'Scan Speed [mm/s]'
+ 'Average Interlayertemperature [°C]']"
+81,82,0.652125969,0.004213476,0.425268279,1.354793838,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Scan Speed [mm/s]' 'Hatch Distance [mm]'
+ 'Average Interlayertemperature [°C]']"
+82,83,3.251093541,0.016794216,10.56960921,4.141907469,5,1,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]']
+83,84,,,,,5,0,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",X
+84,85,2.139900992,0.011778718,4.579176257,1.254646204,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Scan Speed [mm/s]' 'Hatch Distance [mm]'
+ 'Average Interlayertemperature [°C]']"
+85,86,2.815791325,0.025020462,7.928680787,4.607504592,5,2,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]' 'Scan Speed [mm/s]']
+86,87,0.630099647,0.005057153,0.397025565,4.624357384,5,1,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]']
+87,88,1.72494966,0.01026146,2.975451331,1.713375031,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Scan Speed [mm/s]' 'Hatch Distance [mm]'
+ 'Average Interlayertemperature [°C]']"
+88,89,4.430671799,0.02535387,19.63085259,0.71927118,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Average Interlayertemperature [°C]' 'Duration [s]' 'Hatch Distance [mm]'
+ 'Laser Power [W]']"
+89,90,0.567594856,0.003602326,0.322163921,1.212083413,5,5,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Average Interlayertemperature [°C]'
+ 'Scan Speed [mm/s]' 'Duration [s]' 'Hatch Distance [mm]']"
+90,91,3.586487419,0.01831535,12.86289201,2.67421441,5,2,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]' 'Scan Speed [mm/s]']
+91,92,4.736294885,0.018228385,22.43248924,0.886787491,5,4,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Average Interlayertemperature [°C]'
+ 'Scan Speed [mm/s]' 'Hatch Distance [mm]']"
+92,93,2.548148047,0.013069761,6.49305847,1.186299122,5,5,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Hatch Distance [mm]' 'Scan Speed [mm/s]'
+ 'Average Interlayertemperature [°C]' 'Duration [s]']"
+93,94,,,,,5,0,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",X
+94,95,,,,,5,0,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",X
+95,96,0.477779691,0.003590139,0.228273433,1.681013627,5,3,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Average Interlayertemperature [°C]' 'Laser Power [W]'
+ 'Hatch Distance [mm]']"
+96,97,0.830586273,0.007420306,0.689873557,1.671946217,5,3,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']","['Laser Power [W]' 'Scan Speed [mm/s]'
+ 'Average Interlayertemperature [°C]']"
+97,98,0.818636617,0.005344726,0.670165911,1.742734293,5,3,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Laser Power [W]' 'Duration [s]' 'Hatch Distance [mm]']
+98,99,2.036398968,0.020346492,4.146920757,4.519115018,5,2,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",['Scan Speed [mm/s]' 'Hatch Distance [mm]']
+99,100,,,,,5,0,"['Duration [s]', 'Average Interlayertemperature [°C]', 'Laser Power [W]', 'Scan Speed [mm/s]', 'Hatch Distance [mm]']",X

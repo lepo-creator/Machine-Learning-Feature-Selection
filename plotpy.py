@@ -130,12 +130,13 @@ def priProWin(D,colheadersidf,desden,cp1a,cp2a):
     elif num_col_D == 3:
         figwin = range (2)
     elif num_col_D >=4:
-        print("\n")
-        print("-----INFORMATION PROCESS WINDOW INFORMATION-----")
-        print("The generated Data is 4 dimensional or more dimensional. Therefore, the prediction window can't be plotted. Please change input parameters. ")
-        print("Program closed.")
-        print("------------------------------------------------")
-        quit()
+        figwin = range (2)
+        # print("\n")
+        # print("-----INFORMATION PROCESS WINDOW INFORMATION-----")
+        # print("The generated Data is 4 dimensional or more dimensional. Therefore, the prediction window can't be plotted. Please change input parameters. ")
+        # print("Program closed.")
+        # print("------------------------------------------------")
+        # quit()
 
     #Plots 2 Windows next to each other uses window pixel size
     start_x, start_y, dx, dy = (0, 30, 960, 1080)
@@ -156,17 +157,21 @@ def priProWin(D,colheadersidf,desden,cp1a,cp2a):
                 minVal =np.min(D[:,2])
                 # print("MaxValue",maxVal)
                 # print("MinValue",minVal)
-                sc =ax.scatter(D.T[0], D.T[1], D.T[2], c=D.T[2], cmap='RdYlGn', linewidth=0.5, edgecolors='black',label='Predicted Process Points');
+                sc =ax.scatter(D.T[4], D.T[5], D.T[8], c=D.T[8], cmap='RdYlGn', linewidth=0.5, edgecolors='black',label='Predicted Process Points');
                 # sc.set_clim(minVal,maxVal) #used to set colorbounds of the colormap
                 ax.legend()
                 cb=plt.colorbar(sc,ticks=np.linspace(minVal,maxVal,cp1a,dtype='float32'),format='%.2f')
                 fig.suptitle('3D Visualisation of Predicted Process Points', fontweight ="bold")
                 # print("Test123",np.linspace(minVal,maxVal,cp1a,dtype='str'))
                 # cb.ax.set_yticklabels(np.linspace(minVal,maxVal,cp1a,dtype='str'))
-                ax.set_xlabel(colheadersidf[0])
-                ax.set_ylabel(colheadersidf[1])
-                ax.set_zlabel(colheadersidf[2]);
-                cb.set_label(colheadersidf[2]);
+                # ax.set_xlabel(colheadersidf[0])
+                # ax.set_ylabel(colheadersidf[1])
+                # ax.set_zlabel(colheadersidf[2]);
+                # cb.set_label(colheadersidf[2]);
+                ax.set_xlabel('Laser Power [W]')
+                ax.set_ylabel('Scan Speed [mm/s]')
+                ax.set_zlabel('Relative Density [%]');
+                cb.set_label('Relative Density [%]');
                 plt.savefig("./Visual/3DVisualisation_temp.eps", format='eps',bbox_inches='tight') # saved as eps for high quality pictures
                 plt.savefig("./Visual/3DVisualisation_temp.svg", format='svg',bbox_inches='tight')
                 plt.savefig("./Visual/3DVisualisation_temp.png", bbox_inches='tight')

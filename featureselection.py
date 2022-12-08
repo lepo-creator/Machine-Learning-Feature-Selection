@@ -77,12 +77,11 @@ def getFeatureCorrelation(X,T,colheadersidf,scaler):
             dmdf = pd.DataFrame(distance_matrix, columns=colheadersidf[:len(colheadersidf)-1], index=colheadersidf[:len(colheadersidf)-1])
             dmdf.to_csv('./Results/DistanceMatrix.csv')
             dist_linkage = hierarchy.ward(squareform(distance_matrix))
-            # print("Dist linkage",dist_linkage)
+        
             dendro = hierarchy.dendrogram(
                 dist_linkage,labels=colheadersidf[:len(colheadersidf)-1], ax=ax1, leaf_rotation=90
             )
             dendro_idx = np.arange(0, len(dendro["ivl"]))
-
 
             fig.suptitle('Dendrogram of Spearman Correlation Hierarchical Clustering', fontweight ="bold")
             ax1.set_ylabel("Distance")
@@ -100,7 +99,7 @@ def getFeatureCorrelation(X,T,colheadersidf,scaler):
         mngr = plt.get_current_fig_manager()
         mngr.window.setGeometry(x, y, dx, dy)
         x += dx
-    plt.show()
+    # plt.show()
 
     
     # plt.show()
@@ -108,14 +107,14 @@ def getFeatureCorrelation(X,T,colheadersidf,scaler):
 
     #Select a feature for each cluster
     cluster_ids = hierarchy.fcluster(dist_linkage, t=T, criterion="distance")
-    print("Cluster_ids", cluster_ids)
+   
     cluster_id_to_feature_ids = defaultdict(list)
-    print("cluster_id_to_feature_ids be3fore ", cluster_id_to_feature_ids)
+    
     for idx, cluster_id in enumerate(cluster_ids):
         cluster_id_to_feature_ids[cluster_id].append(idx)
-    print("cluster_id_to_feature_ids after ", cluster_id_to_feature_ids)
+    
     selected_features = [v[0] for v in cluster_id_to_feature_ids.values()]
-    print("selected_features", selected_features)
+    
 
     X_o = scaler.inverse_transform(X)
     X_sel_o = X_o[:, selected_features]
@@ -145,7 +144,7 @@ def getPermutationImportance(model_sel,X_test,y_test,randomstate,scoring,colhead
     #               f" +/- {r.importances_std[i] :.3f}")
     
     colheadersidf_sel=np.asarray(colheadersidf_selin[:len(colheadersidf_selin)]) # turns the list into a numpy array
-    
+
     #Sorts Data
     sorted_meanimportances_a =np.sort(r.importances_mean, axis = 0) # Sorts importances_mean in a descending way
     sorted_stdimportances_a=r.importances_std.ravel()[r.importances_mean.argsort(axis=None).reshape(r.importances_mean.shape)] #Sorts importances standartderivation like importances_mean in a descending way
@@ -155,15 +154,16 @@ def getPermutationImportance(model_sel,X_test,y_test,randomstate,scoring,colhead
     sorted_stdimportances = sorted_stdimportances_a[::-1] # change sorting direction to ascending
     sorted_names = sorted_names_a[::-1] # change sorting direction to ascending
 
+
     #Stores the sorted mean permutation importance and standart derivation of each feature in one csv file
-    dmdf = pd.DataFrame(sorted_meanimportances.reshape(1,-1),columns=colheadersidf_selin[:len(colheadersidf_selin)-1], index=["Mean Permutation Importance (MPI)"])
+    dmdf = pd.DataFrame(sorted_meanimportances.reshape(1,-1),columns=sorted_names, index=["Mean Permutation Importance (MPI)"])
     dmdf2=dmdf.append(pd.DataFrame(sorted_stdimportances.reshape(1,-1), columns=list(dmdf), index=["MPI Standart Derivation"]))
-    dmdf2.to_csv('./Results/PermutationImportances.csv')
+    dmdf2.to_csv('./Results/ModelTraining/FeatureSelectionAlgorithm/PermutationImportance/Matrix/{}.csv'.format(randomstate))
 
     # Counts the values which lie in the given threshold of r.importances_mean[i] - 2 * r.importances_std[i] > 0 to seperate the sorted array
     k=0
     for i in range(len(sorted_meanimportances)):
-        if r.importances_mean[i] - 2 * r.importances_std[i] > 0:
+        if r.importances_mean[i] - 1 * r.importances_std[i] > 0:
             k+=1
     
     #get the final feature importances
@@ -178,7 +178,10 @@ def getPermutationImportance(model_sel,X_test,y_test,randomstate,scoring,colhead
         print("No suitable features were found by the automatic feature selection. Please change the input data, boundary parameters or the random state. ")
         print("Program closed.")
         print("-------------------------------------------------")
-        quit()
+        X_sel2 = 'ABBRUCH_JUNGE'
+        colheadersidf_sel2 ='blub'
+        scaler_p ='Chantal'
+        return X_sel2,colheadersidf_sel2, scaler_p
 
 
     #normalise the selected data
@@ -251,15 +254,13 @@ def getPermutationImportance(model_sel,X_test,y_test,randomstate,scoring,colhead
             # ax.set_ylabel(colheadersidf[1])
             # ax.set_zlabel(colheadersidf[2])
             # cb.set_label(colheadersidf[2]);
-            plt.savefig("./Visual/3DVisualisationPermutationImportance_temp.eps",bbox_inches='tight', format='eps') # saved as eps for high quality pictures
-            plt.savefig("./Visual/3DVisualisationPermutationImportance_temp.svg",bbox_inches='tight', format='svg')
-            plt.savefig("./Visual/3DVisualisationPermutationImportance_temp.png",bbox_inches='tight')
-            
+            plt.savefig('./Results/ModelTraining/FeatureSelectionAlgorithm/PermutationImportance/Plot/{}.pdf'.format(randomstate),bbox_inches='tight', format='pdf') # saved as eps for high quality pictures
+            plt.savefig('./Results/ModelTraining/FeatureSelectionAlgorithm/PermutationImportance/Plot/{}.svg'.format(randomstate),bbox_inches='tight', format='svg')
 
         mngr = plt.get_current_fig_manager()
         mngr.window.setGeometry(x, y, dx, dy)
         x += dx
-    plt.show()
+    # plt.show()
         
     return X_sel2,colheadersidf_sel2, scaler_p
 
@@ -272,7 +273,6 @@ def creategroups(idf,numberintervals):
     E_min = np.min(E_arr) # searches for minimal value
     E_max = np.max(E_arr) # searches for the maximal value in the energy densities
     intervalpoints = np.linspace(E_min, E_max, num=numberpoints) # Creates an intervalls out of the min and max value with a spefic a
-    print("Intervall points", intervalpoints)
     i = 0
     group_label=np.zeros(E_arr.shape) # creates a array with the correct size with zeros
     for ele in E_arr:
@@ -287,7 +287,7 @@ def creategroups(idf,numberintervals):
                 group_label[i][0]=k-1 
                 break
         i+=1
-    print("The group labels",group_label)
+    # print("The group labels",group_label)
     return group_label, intervalpoints
 
 
