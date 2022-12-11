@@ -77,7 +77,7 @@ def plotoverfitting(Inputpath,Outputpath):
 
 
     #fig1 = plt.figure()
-    fig1 = plt.figure(figsize=(cm2inch(15,7)))
+    fig1 = plt.figure(figsize=(cm2inch(7.3,7.3)))
 
     # set up axes
     plt.xlabel("Predicted Relative Density [%]")
@@ -99,7 +99,7 @@ def plotoverfitting(Inputpath,Outputpath):
 
 
 
-    axins = inset_axes(ax1, 1, 1, loc = 1, bbox_to_anchor=(0.47, 0.85),#0.41, 0.74 #0.85, 0.52 #0.40, 0.85 #0.47, 0.85
+    axins = inset_axes(ax1, 0.75, 0.75, loc = 1, bbox_to_anchor=(0.55, 0.88),#0.41, 0.74 #0.85, 0.52 #0.40, 0.85 #0.47, 0.85
                    bbox_transform = ax1.figure.transFigure)
 
 

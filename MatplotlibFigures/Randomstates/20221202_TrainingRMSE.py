@@ -136,12 +136,12 @@ plt.plot(lis,RMSEListbm , linestyle='-', color='black', label='Basic Model')
 
 
 # plt.plot(lis,MAPEList , linestyle='-', marker='v', color='lime', label='MAPE')
-plt.plot(lis,RMSEListsm , linestyle='-', color='lime', label='Simulation Data Model')
+plt.plot(lis,RMSEListsm , linestyle='-', color='limegreen', label='Simulation Data Model')
 
 # plt.hlines(RMSEsmav, 1, 101, color='lime', linestyle='--')
 
 # plt.plot(lis,MSEList , linestyle='-', marker='s', color='darkred', label='MSE')
-plt.plot(lis,RMSEListfs , linestyle='-', color='darkred', label='Feature Selection Model')
+plt.plot(lis,RMSEListfs , linestyle='-', color='salmon', label='Feature Selection Model')
 
 # plt.hlines(RMSEfsav, 1, 101, color='darkred', linestyle='--')
 

@@ -90,7 +90,10 @@ HatDisav = Average(HatDis)
 AvIntav = Average(AvInt)
 Durav = Average(Dur)
 
-
+LasPowme = Median(LasPow)
+ScaSpeme = Median(ScaSpe)
+HatDisme = Median(HatDis)
+print(LasPowme,ScaSpeme,HatDisme)
 # ## Median
 # BMListcpy=RMSEListbm.copy()
 # SMListcpy=RMSEListsm.copy()
@@ -139,7 +142,7 @@ plt.rc('ytick', labelsize=12) #fontsize of the y tick labels
 
 
 #fig1 = plt.figure()
-fig1 = plt.figure(figsize=(cm2inch(17,10)))
+fig1 = plt.figure(figsize=(cm2inch(15,8)))
 
 # set up axes
 
@@ -192,7 +195,7 @@ plt.grid(True)
 # while("X" in RMSEListfs):
 
 #     RMSEListfs.remove("X")
-ax1.set_xticklabels([r'Laser Pow. $P_L$',r'Scan Spe. $v_S$',r'Hat. Dis. $h_D$',r'$AvInt$',r'Dur. $t$'])
+ax1.set_xticklabels([r'Las. Pow. $P_L$',r'Scan Spe. $v_S$',r'Hat. Dis. $h_D$',r'$AvInt$',r'Dur. $t$'])
 
 bp=plt.boxplot(dataAver)
 # ax1.set_ylim(0,13.5)

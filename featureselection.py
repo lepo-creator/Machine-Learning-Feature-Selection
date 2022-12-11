@@ -99,10 +99,7 @@ def getFeatureCorrelation(X,T,colheadersidf,scaler):
         mngr = plt.get_current_fig_manager()
         mngr.window.setGeometry(x, y, dx, dy)
         x += dx
-    # plt.show()
-
-    
-    # plt.show()
+    plt.show()
 
 
     #Select a feature for each cluster
@@ -136,12 +133,6 @@ def getPermutationImportance(model_sel,X_test,y_test,randomstate,scoring,colhead
                                n_repeats=30,
                                random_state=randomstate, scoring=scoring, n_jobs=-1)
 
-    
-    # for i in r.importances_mean.argsort()[::-1]:
-    #     if r.importances_mean[i] - 2 * r.importances_std[i] > 0:
-    #         print(f"{colheadersidf[i]:<8}"
-    #               f"         {r.importances_mean[i] :.3f}"
-    #               f" +/- {r.importances_std[i] :.3f}")
     
     colheadersidf_sel=np.asarray(colheadersidf_selin[:len(colheadersidf_selin)]) # turns the list into a numpy array
 
@@ -178,10 +169,11 @@ def getPermutationImportance(model_sel,X_test,y_test,randomstate,scoring,colhead
         print("No suitable features were found by the automatic feature selection. Please change the input data, boundary parameters or the random state. ")
         print("Program closed.")
         print("-------------------------------------------------")
-        X_sel2 = 'ABBRUCH_JUNGE'
-        colheadersidf_sel2 ='blub'
-        scaler_p ='Chantal'
-        return X_sel2,colheadersidf_sel2, scaler_p
+        X_sel2 = ''
+        colheadersidf_sel2 =''
+        scaler_p =''
+        X_sel2_o = ''
+        return X_sel2,colheadersidf_sel2, scaler_p, X_sel2_o
 
 
     #normalise the selected data
@@ -230,13 +222,6 @@ def getPermutationImportance(model_sel,X_test,y_test,randomstate,scoring,colhead
             # Show top values
             ax.invert_yaxis()
             
-            # # # Add annotation to bars
-            # for i in ax.patches:
-            #     print(i.get_width(),i.get_y())
-            #     plt.text(i.get_width()+0.2, i.get_y()+0.5,
-            #             str(round((i.get_width()), 20)),
-            #             fontsize = 12, fontweight ='bold',
-            #             color ='grey')
 
 
 
@@ -260,9 +245,9 @@ def getPermutationImportance(model_sel,X_test,y_test,randomstate,scoring,colhead
         mngr = plt.get_current_fig_manager()
         mngr.window.setGeometry(x, y, dx, dy)
         x += dx
-    # plt.show()
+    plt.show()
         
-    return X_sel2,colheadersidf_sel2, scaler_p
+    return X_sel2,colheadersidf_sel2, scaler_p ,X_sel2_o
 
 
 def creategroups(idf,numberintervals):
@@ -287,7 +272,6 @@ def creategroups(idf,numberintervals):
                 group_label[i][0]=k-1 
                 break
         i+=1
-    # print("The group labels",group_label)
     return group_label, intervalpoints
 
 
@@ -324,8 +308,7 @@ if __name__ == '__main__':
     model_sel = net.fit(X_train,y_train)
 
     X_sel2,colheadersidf_sel2 = getpermutationimportance(model_sel,X_test,y_test,randomstate,scoring,colheadersidf_sel,idf)
-    print("X selected 2",X_sel2)
-    print("Colnames 2",colheadersidf_sel2)
+
 
       
 

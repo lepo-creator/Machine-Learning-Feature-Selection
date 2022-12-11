@@ -15,14 +15,22 @@ from sklearn.preprocessing import MinMaxScaler
 #own imports
 from csvpy import *
 
+
+def cm2inch(*tupl):
+    inch = 2.54
+    if isinstance(tupl[0], tuple):
+        return tuple(i/inch for i in tupl[0])
+    else:
+        return tuple(i/inch for i in tupl)
+
 #Sets Plotdesigndata on global Level
  #CHANGE FONT TYPE
 plt.rc('font',family='Linux Biolinum')
 #CHANGE FONT SIZES
 # plt.rc('font', size=12, weight='bold') #controls default text size
 #plt.rc('font', size=12) #controls default text size
-plt.rc('figure', titlesize=17.28) #fontsize of the title
-plt.rc('axes', titlesize=14.4) #fontsize of the title
+plt.rc('figure', titlesize=12) #fontsize of the title
+plt.rc('axes', titlesize=12) #fontsize of the title
 plt.rc('axes', labelsize=12) #fontsize of the x and y labels
 plt.rc('xtick', labelsize=12) #fontsize of the x tick labels
 plt.rc('ytick', labelsize=12) #fontsize of the y tick labels
@@ -36,83 +44,115 @@ plt.set_loglevel("error") # just shows important error. Ignores warnings.
 def preVal(model,f1min,f1max,f1num,f2min,f2max,f2num, automaticfeatsel, X_sel, scaler_p):
     num_col_sel = np.atleast_2d(X_sel).shape[1] # gets the number of columns of a numpy array
     if automaticfeatsel == 0:
-        if num_col_sel == 2:
-            #creates a set of values according to the input parameters
-            f1 = np.linspace(f1min, f1max, f1num)
-            f2 = np.linspace(f2min, f2max, f2num)
-            # print("f1",f1)
-            # print("shape f1",f1.shape)
-            # print("f2",f2)
-            #Transforms the the lines to vectors for further processing
-            f1vt, u1 = np.meshgrid(f1,1)
-            f2vt, u2 = np.meshgrid(f2,1)
-            f1v= f1vt.T
-            f2v= f2vt.T
-            # print("\n")
-            # print(f1vt)
-            # print(u1)
-            #Fill an numpy X array in the right form
-            numrows=f1num*f2num
-            X_pre_o = np.zeros((numrows,2))
-            l = 0
-            for i in range(f1num):
-                for k in range(f2num):
-                    X_pre_o[l][0]=f1v[i]
-                    X_pre_o[l][1]=f2v[k]
-                    l+=1
-            # print("X Predict werte",X_pre)
+        #Used in the thesis to plot a 8 Dimensional Model in 3d with the other dimensions constant
+        # if num_col_sel == 8:
+        #     maximum_element_col = np.max(X_sel, 0)
+        #     minimum_element_col = np.min(X_sel, 0)
+        #     a =[]
 
-        
+        #     a.append(np.linspace(minimum_element_col[4], maximum_element_col[4], f1num))
+        #     a.append(np.linspace(minimum_element_col[5], maximum_element_col[5], f2num))
 
-            # #DEBUGG print D
-            # print(D)
-            # print(D.shape)
-        elif num_col_sel == 1:
-            #creates a set of values according to the input parameters
-            f1 = np.linspace(f1min, f1max, f1num)
-            # print("f1",f1)
-            # print("shape f1",f1.shape)
-            # print("f2",f2)
-            #Transforms the the lines to vectors for further processing
-            f1vt, u1 = np.meshgrid(f1,1)
+        #     X_l = list(product(*a)) # creates a list with all combinations of features
+        #     X_l_arr = np.asarray(X_l) # turns the list in a numpy array
+        #     X_pre_o=np.zeros((X_l_arr.shape[0],num_col_sel))
+        #     X_pre_o[:,[4,5]]=X_l_arr
+
+        #     #Define constant dimension of the 8 dimensional plot
+        #     X_pre_o[:,0]=2710.043333
+        #     X_pre_o[:,1]=86.77480904
+        #     X_pre_o[:,2]=13.74265694
+        #     X_pre_o[:,3]=52.73691608
             
-            f1v= f1vt.T
+        #     X_pre_o[:,6]=0.15
+        #     X_pre_o[:,7]=57.37654321
             
-            # print("\n")
-            # print(f1vt)
-            # print(u1)
-            #Fill an numpy X array in the right form
-            numrows=f1num*f2num
-            X_pre_o = np.zeros((numrows,1))
-            l = 0
-            for i in range(f1num):
-                for k in range(f2num):
-                    X_pre_o[l][0]=f1v[i]
+        #     print(X_pre_o)
+        #     print(X_pre_o[1][4])
+        #     print(X_pre_o[1][3])
+
+        #     print("shape X_pre_o",X_pre_o.shape[0])
+        #     print("shape X_pre_o Ohne",X_pre_o.shape)
+        # if num_col_sel == 2:
+        #     #creates a set of values according to the input parameters
+        #     f1 = np.linspace(f1min, f1max, f1num)
+        #     f2 = np.linspace(f2min, f2max, f2num)
+          
+        #     #Transforms the the lines to vectors for further processing
+        #     f1vt, u1 = np.meshgrid(f1,1)
+        #     f2vt, u2 = np.meshgrid(f2,1)
+        #     f1v= f1vt.T
+        #     f2v= f2vt.T
+
+        #     #Fill an numpy X array in the right form
+        #     numrows=f1num*f2num
+        #     X_pre_o = np.zeros((numrows,2))
+        #     l = 0
+        #     for i in range(f1num):
+        #         for k in range(f2num):
+        #             X_pre_o[l][0]=f1v[i]
+        #             X_pre_o[l][1]=f2v[k]
+        #             l+=1
+      
+        # elif num_col_sel == 1:
+        #     #creates a set of values according to the input parameters
+        #     f1 = np.linspace(f1min, f1max, f1num)
+            
+        #     #Transforms the the lines to vectors for further processing
+        #     f1vt, u1 = np.meshgrid(f1,1)
+            
+        #     f1v= f1vt.T
+            
+
+        #     #Fill an numpy X array in the right form
+        #     numrows=f1num*f2num
+        #     X_pre_o = np.zeros((numrows,1))
+        #     l = 0
+        #     for i in range(f1num):
+        #         for k in range(f2num):
+        #             X_pre_o[l][0]=f1v[i]
                     
-                    l+=1
-            # print("X Predict werte",X_pre)
-        else:
+        #             l+=1
+        # else:
+        if num_col_sel < 3:
             maximum_element_col = np.max(X_sel, 0)
             minimum_element_col = np.min(X_sel, 0)
             a =[]
             for i in range(len(maximum_element_col)):
                 a.append(np.linspace(minimum_element_col[i], maximum_element_col[i], f1num)) # adds a linspace array for each feature
             X_l = list(product(*a)) # creates a list with all combinations of features
-            X_pre_o = np.asarray(X_l) # turns the list in a numpy array
-        
-        scaler_a = MinMaxScaler()
-        X_pre = scaler_a.fit_transform(X_pre_o) # normalises the predicted data
+            X_pre = np.asarray(X_l) # turns the list in a numpy array
+            X_pre_o = scaler_p.inverse_transform(X_pre) # inverse normalization 
+        else:
+            print("\n")
+            print("-----INFORMATION PROCESS WINDOW INFORMATION-----")
+            print("The generated Data is 4 dimensional or more dimensional. Therefore, the prediction window can't be plotted. Please change input parameters. ")
+            print("Program closed.")
+            print("------------------------------------------------")
+            quit()
+    
+        # scaler_a = MinMaxScaler()
+        # X_pre = scaler_a.fit_transform(X_pre_o) # normalises the predicted data
 
     elif automaticfeatsel == 1:
-        maximum_element_col = np.max(X_sel, 0)
-        minimum_element_col = np.min(X_sel, 0)
-        a =[]
-        for i in range(len(maximum_element_col)):
-            a.append(np.linspace(minimum_element_col[i], maximum_element_col[i], f1num)) # adds a linspace array for each feature
-        X_l = list(product(*a)) # creates a list with all combinations of features
-        X_pre = np.asarray(X_l) # turns the list in a numpy array
-        X_pre_o = scaler_p.inverse_transform(X_pre) # inverse normalization 
+        if num_col_sel < 3:
+            maximum_element_col = np.max(X_sel, 0)
+            minimum_element_col = np.min(X_sel, 0)
+            a =[]
+            for i in range(len(maximum_element_col)):
+                a.append(np.linspace(minimum_element_col[i], maximum_element_col[i], f1num)) # adds a linspace array for each feature
+            X_l = list(product(*a)) # creates a list with all combinations of features
+            X_pre = np.asarray(X_l) # turns the list in a numpy array
+            X_pre_o = scaler_p.inverse_transform(X_pre) # inverse normalization 
+        else:
+            print("\n")
+            print("-----INFORMATION PROCESS WINDOW INFORMATION-----")
+            print("The generated Data is 4 dimensional or more dimensional. Therefore, the prediction window can't be plotted. Please change input parameters. ")
+            print("Program closed.")
+            print("------------------------------------------------")
+            quit()
 
+    
     # Calculate preditions and add them together to one array
     
     y_pre = model.predict(X_pre)
@@ -130,13 +170,12 @@ def priProWin(D,colheadersidf,desden,cp1a,cp2a):
     elif num_col_D == 3:
         figwin = range (2)
     elif num_col_D >=4:
-        figwin = range (2)
-        # print("\n")
-        # print("-----INFORMATION PROCESS WINDOW INFORMATION-----")
-        # print("The generated Data is 4 dimensional or more dimensional. Therefore, the prediction window can't be plotted. Please change input parameters. ")
-        # print("Program closed.")
-        # print("------------------------------------------------")
-        # quit()
+        print("\n")
+        print("-----INFORMATION PROCESS WINDOW INFORMATION-----")
+        print("The generated Data is 4 dimensional or more dimensional. Therefore, the prediction window can't be plotted. Please change input parameters. ")
+        print("Program closed.")
+        print("------------------------------------------------")
+        quit()
 
     #Plots 2 Windows next to each other uses window pixel size
     start_x, start_y, dx, dy = (0, 30, 960, 1080)
@@ -145,43 +184,47 @@ def priProWin(D,colheadersidf,desden,cp1a,cp2a):
         if i%3 == 0:
             x = start_x
             y = start_y  + (dy * (i//3) )
-        fig=plt.figure()
+        fig=plt.figure(figsize=(cm2inch(17,10)))
         
+
         if num_col_D == 3:# 3D plot with one col is the desired value
             if i == 0:
                 # fig = plt.figure(num=None, figsize=(11.55, 13), dpi=80, facecolor='w', edgecolor='k')
                 ax = plt.axes(projection='3d')
-                # print(D)
-                # maxVal= D.max(axis=1)
+
                 maxVal =np.max(D[:,2])
                 minVal =np.min(D[:,2])
-                # print("MaxValue",maxVal)
-                # print("MinValue",minVal)
-                sc =ax.scatter(D.T[4], D.T[5], D.T[8], c=D.T[8], cmap='RdYlGn', linewidth=0.5, edgecolors='black',label='Predicted Process Points');
-                # sc.set_clim(minVal,maxVal) #used to set colorbounds of the colormap
+               
+                sc =ax.scatter(D.T[0], D.T[1], D.T[2], c=D.T[2], cmap='RdYlGn', linewidth=0.5, edgecolors='black',label='Predicted Process Points');
+               
                 ax.legend()
-                cb=plt.colorbar(sc,ticks=np.linspace(minVal,maxVal,cp1a,dtype='float32'),format='%.2f')
-                fig.suptitle('3D Visualisation of Predicted Process Points', fontweight ="bold")
+                cb=plt.colorbar(sc,ticks=np.linspace(minVal,maxVal,cp1a,dtype='float32'),format='%.2f',pad=0.15)
+                # fig.suptitle('3D Visualisation of Predicted Process Points', fontweight ="bold")
                 # print("Test123",np.linspace(minVal,maxVal,cp1a,dtype='str'))
                 # cb.ax.set_yticklabels(np.linspace(minVal,maxVal,cp1a,dtype='str'))
-                # ax.set_xlabel(colheadersidf[0])
-                # ax.set_ylabel(colheadersidf[1])
-                # ax.set_zlabel(colheadersidf[2]);
-                # cb.set_label(colheadersidf[2]);
-                ax.set_xlabel('Laser Power [W]')
-                ax.set_ylabel('Scan Speed [mm/s]')
-                ax.set_zlabel('Relative Density [%]');
-                cb.set_label('Relative Density [%]');
-                plt.savefig("./Visual/3DVisualisation_temp.eps", format='eps',bbox_inches='tight') # saved as eps for high quality pictures
-                plt.savefig("./Visual/3DVisualisation_temp.svg", format='svg',bbox_inches='tight')
-                plt.savefig("./Visual/3DVisualisation_temp.png", bbox_inches='tight')
+                ax.set_xlabel(colheadersidf[0])
+                ax.set_ylabel(colheadersidf[1])
+                ax.set_zlabel(colheadersidf[2]);
+                cb.set_label(colheadersidf[2]);
+                # ax.set_xlabel('Laser Power [W]')
+                # ax.set_ylabel('Scan Speed [mm/s]')
+                # ax.set_zlabel('Relative Density [%]');
+                # cb.set_label('Relative Density [%]');
+                # plt.savefig("./Visual/3DVisualisation_temp.pdf", format='pdf',bbox_inches='tight') # saved as eps for high quality pictures
+                plt.savefig("./Visual/3DVisualisation_temp.pdf", format='pdf',bbox_inches='tight') # saved as eps for high quality pictures
 
 
                 # ax.set_title('Visualisation Dataset')
             
             if i == 1:
                 
-                #Moifies the Dataset
+                # #Moifies the Dataset
+                # D[D[:,2]>desden]
+                # D_dm = D[D[:,2]>desden] # deletes each row with a density lower then the desired density desden
+                # D_wd = np.delete(D_dm, 2, 1) # deletes the density column out of the dataset
+                # maxVal2 =np.max(D_dm[:,2])#Searches for the maximal relative density in the dataset
+                # minVal2 =np.min(D_dm[:,2])#Searches for the minimal relative density in the dataset
+
                 D[D[:,2]>desden]
                 D_dm = D[D[:,2]>desden] # deletes each row with a density lower then the desired density desden
                 D_wd = np.delete(D_dm, 2, 1) # deletes the density column out of the dataset
@@ -190,12 +233,13 @@ def priProWin(D,colheadersidf,desden,cp1a,cp2a):
 
                 #Second 2D plot
                 ax = plt.axes()
+                # sc2=ax.scatter(D_dm.T[1], D_dm.T[0], c=D_dm.T[2], cmap='RdYlGn', linewidth=0.5, edgecolors='black',label='Predicted Process Points')
                 sc2=ax.scatter(D_dm.T[1], D_dm.T[0], c=D_dm.T[2], cmap='RdYlGn', linewidth=0.5, edgecolors='black',label='Predicted Process Points')
-
+                D_red=D_wd
                 #Creates a Hull from the points
-                hull = ConvexHull(D_wd,incremental=False) # defines a hull from the points
+                hull = ConvexHull(D_red,incremental=False) # defines a hull from the points
                 hullverm= np.append(hull.vertices,hull.vertices[0]) # adds the first point to the array to have a closed convex hull
-                plt.plot(D_wd[hullverm,1], D_wd[hullverm,0], 'k', lw=2, label='Predicted Process Window') #plots the hull
+                plt.plot(D_red[hullverm,1], D_red[hullverm,0], 'k', lw=2, label='Predicted Process Window') #plots the hull
                 ax.legend()#plots a legend
                 cb = plt.colorbar(sc2,ticks=np.linspace(minVal2,maxVal2,cp2a,dtype='float32'),format='%.2f')#plots a colorbar
 
@@ -206,35 +250,103 @@ def priProWin(D,colheadersidf,desden,cp1a,cp2a):
                 cb.set_label(colheadersidf[2]);
 
                 #saves the plot
-                plt.savefig("./Visual/2DVisualisation_temp.eps", format='eps',bbox_inches='tight') # saved as eps for high quality pictures
-                plt.savefig("./Visual/2DVisualisation_temp.svg", format='svg',bbox_inches='tight')
-                plt.savefig("./Visual/2DVisualisation_temp.png", bbox_inches='tight')
+                plt.savefig("./Visual/2DVisualisation_temp.pdf", format='pdf',bbox_inches='tight') # saved as eps for high quality pictures
+
+
+######## This part was used to generate a process window with 8 dimensional input and plot it in 3d with the other dimensions stay constant. ######
+        # elif num_col_D == 8:# 3D plot with one col is the desired value
+        #     if i == 0:
+        #         # fig = plt.figure(num=None, figsize=(11.55, 13), dpi=80, facecolor='w', edgecolor='k')
+        #         ax = plt.axes(projection='3d')
+        #         # print(D)
+        #         # maxVal= D.max(axis=1)
+        #         # maxVal =np.max(D[:,2])
+        #         # minVal =np.min(D[:,2])
+        #         maxVal =np.max(D[:,8])
+        #         minVal =np.min(D[:,8])
+        #         # print("MaxValue",maxVal)
+        #         # print("MinValue",minVal)
+        #         sc =ax.scatter(D.T[4], D.T[5], D.T[8], c=D.T[8], cmap='RdYlGn', linewidth=0.5, edgecolors='black',label='Predicted Process Points');
+        #         # sc.set_clim(minVal,maxVal) #used to set colorbounds of the colormap
+        #         ax.legend()
+        #         cb=plt.colorbar(sc,ticks=np.linspace(minVal,maxVal,cp1a,dtype='float32'),format='%.2f',pad=0.15)
+        #         # fig.suptitle('3D Visualisation of Predicted Process Points', fontweight ="bold")
+        #         # print("Test123",np.linspace(minVal,maxVal,cp1a,dtype='str'))
+        #         # cb.ax.set_yticklabels(np.linspace(minVal,maxVal,cp1a,dtype='str'))
+        #         # ax.set_xlabel(colheadersidf[0])
+        #         # ax.set_ylabel(colheadersidf[1])
+        #         # ax.set_zlabel(colheadersidf[2]);
+        #         # cb.set_label(colheadersidf[2]);
+        #         ax.set_xlabel('Laser Power [W]')
+        #         ax.set_ylabel('Scan Speed [mm/s]')
+        #         ax.set_zlabel('Relative Density [%]');
+        #         cb.set_label('Relative Density [%]');
+        #         # plt.savefig("./Visual/3DVisualisation_temp.pdf", format='pdf',bbox_inches='tight') # saved as eps for high quality pictures
+        #         plt.savefig("./Visual/3DVisualisation_temp.pdf", format='pdf',bbox_inches='tight') # saved as eps for high quality pictures
+
+
+        #         # ax.set_title('Visualisation Dataset')
             
+        #     if i == 1:
+                
+        #         # #Moifies the Dataset
+        #         # D[D[:,2]>desden]
+        #         # D_dm = D[D[:,2]>desden] # deletes each row with a density lower then the desired density desden
+        #         # D_wd = np.delete(D_dm, 2, 1) # deletes the density column out of the dataset
+        #         # maxVal2 =np.max(D_dm[:,2])#Searches for the maximal relative density in the dataset
+        #         # minVal2 =np.min(D_dm[:,2])#Searches for the minimal relative density in the dataset
+
+        #         D[D[:,8]>desden]
+        #         print("Shape of D",D.shape)
+        #         print("Data ",D)
+        #         D_dm = D[D[:,8]>desden] # deletes each row with a density lower then the desired density desden
+        #         print("Cleaned data D",D_dm.shape)
+        #         D_wd = np.delete(D_dm, 8, 1) # deletes the density column out of the dataset
+        #         print("Cleaned data D",D_wd.shape)
+        #         print("Data wd deleted ",D_wd)
+        #         maxVal2 =np.max(D_dm[:,8])#Searches for the maximal relative density in the dataset
+        #         minVal2 =np.min(D_dm[:,8])#Searches for the minimal relative density in the dataset
+
+        #         #Second 2D plot
+        #         ax = plt.axes()
+        #         # sc2=ax.scatter(D_dm.T[1], D_dm.T[0], c=D_dm.T[2], cmap='RdYlGn', linewidth=0.5, edgecolors='black',label='Predicted Process Points')
+        #         sc2=ax.scatter(D_dm.T[5], D_dm.T[4], c=D_dm.T[8], cmap='RdYlGn', linewidth=0.5, edgecolors='black',label='Predicted Process Points')
+        #         D_red=D_wd[:,[4,5]]
+        #         #Creates a Hull from the points
+        #         hull = ConvexHull(D_red,incremental=False) # defines a hull from the points
+        #         hullverm= np.append(hull.vertices,hull.vertices[0]) # adds the first point to the array to have a closed convex hull
+        #         plt.plot(D_red[hullverm,1], D_red[hullverm,0], 'k', lw=2, label='Predicted Process Window') #plots the hull
+        #         ax.legend()#plots a legend
+        #         cb = plt.colorbar(sc2,ticks=np.linspace(minVal2,maxVal2,cp2a,dtype='float32'),format='%.2f')#plots a colorbar
+
+        #         #Defines Titels of the plot
+        #         # fig.suptitle('Predicted Process Window with a {} higher than {}. '.format(colheadersidf[2],desden), fontweight ="bold")
+        #         # ax.set_xlabel(colheadersidf[1])
+        #         # ax.set_ylabel(colheadersidf[0])
+        #         # cb.set_label(colheadersidf[2]);
+        #         ax.set_xlabel('Laser Power [W]')
+        #         ax.set_ylabel('Scan Speed [mm/s]')
+        #         cb.set_label('Relative Density [%]');
+
+        #         #saves the plot
+        #         # plt.savefig("./Visual/2DVisualisation_temp.pdf", format='pdf',bbox_inches='tight') # saved as eps for high quality pictures
+        #         plt.savefig("./Visual/2DVisualisation_temp.pdf", format='pdf',bbox_inches='tight') # saved as eps for high quality pictures
         elif num_col_D == 2:
             if i == 0:
-                # fig = plt.figure(num=None, figsize=(11.55, 13), dpi=80, facecolor='w', edgecolor='k')
                 ax = plt.axes()
-                # print(D)
-                # maxVal= D.max(axis=1)
+
                 maxVal =np.max(D[:,1])
                 minVal =np.min(D[:,1])
-                # print("MaxValue",maxVal)
-                # print("MinValue",minVal)
-                # sc =ax.scatter(D.T[0], D.T[1], D.T[2], c=D.T[2], cmap='RdYlGn', linewidth=0.5, edgecolors='black',label='Predicted Process Points');
+                
                 sc = plt.scatter(D.T[0],D.T[1], c=D.T[1], cmap='RdYlGn', linewidth=0.5, edgecolors='black',label='Predicted Process Points')
                 # sc.set_clim(minVal,maxVal) #used to set colorbounds of the colormap
                 ax.legend()
                 cb=plt.colorbar(sc,ticks=np.linspace(minVal,maxVal,cp1a,dtype='float32'),format='%.2f')
                 fig.suptitle('2D Visualisation of Predicted Process Points', fontweight ="bold")
-                # print("Test123",np.linspace(minVal,maxVal,cp1a,dtype='str'))
-                # cb.ax.set_yticklabels(np.linspace(minVal,maxVal,cp1a,dtype='str'))
                 ax.set_xlabel(colheadersidf[0])
                 ax.set_ylabel(colheadersidf[1])
                 cb.set_label(colheadersidf[1]);
-                plt.savefig("./Visual/2DVisualisation_temp.eps", format='eps',bbox_inches='tight') # saved as eps for high quality pictures
-                plt.savefig("./Visual/2DVisualisation_temp.svg", format='svg',bbox_inches='tight')
-                plt.savefig("./Visual/2DVisualisation_temp.png", bbox_inches='tight')
-
+                plt.savefig("./Visual/2DVisualisation_temp.pdf", format='pdf',bbox_inches='tight') # saved as eps for high quality pictures
 
                 # ax.set_title('Visualisation Dataset')
         
@@ -343,9 +455,7 @@ def plotpermutationimportance(X_train,y_train,X_test, y_test,colheadersidf,testd
             ax.set_ylabel(colheadersidf[1])
             ax.set_zlabel(colheadersidf[2])
             # cb.set_label(colheadersidf[2]);
-            plt.savefig("./Visual/3DVisualisationTestandTrainingData_temp.eps",bbox_inches='tight', format='eps') # saved as eps for high quality pictures
-            plt.savefig("./Visual/3DVisualisationTestandTrainingData_temp.svg",bbox_inches='tight', format='svg')
-            plt.savefig("./Visual/3DVisualisationTestandTrainingData_temp.png",bbox_inches='tight')
+            plt.savefig("./Visual/3DVisualisationTestandTrainingData_temp.pdf",bbox_inches='tight', format='pdf') # saved as eps for high quality pictures
             
 
         mngr = plt.get_current_fig_manager()

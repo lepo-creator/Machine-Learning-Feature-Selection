@@ -138,12 +138,12 @@ plt.plot(lis,RMSEListbm , linestyle='-', color='black', label='Basic Model')
 
 
 # plt.plot(lis,MAPEList , linestyle='-', marker='v', color='lime', label='MAPE')
-plt.plot(lis,RMSEListsm , linestyle='-', color='lime', label='Simulation Data Model')
+plt.plot(lis,RMSEListsm , linestyle='-', color='limegreen', label='Simulation Data Model')
 # plt.axhline(y = MAPEav, color = 'lime', linestyle = '--')
 # plt.hlines(RMSEsmav, 180000, (lis[-1]+60000), color='lime', linestyle='--')
 
 # plt.plot(lis,MSEList , linestyle='-', marker='s', color='darkred', label='MSE')
-plt.plot(lis,RMSEListfs , linestyle='-', color='darkred', label='Feature Selection Model')
+plt.plot(lis,RMSEListfs , linestyle='-', color='salmon', label='Feature Selection Model')
 # # plt.axhline(y = MSEav, color = 'darkred', linestyle = '--')
 # plt.hlines(RMSEfsav, 180000, (lis[-1]+60000), color='darkred', linestyle='--')
 # plt.axhline(y = RMSEav, color = 'black', linestyle = '--',label='Averages')

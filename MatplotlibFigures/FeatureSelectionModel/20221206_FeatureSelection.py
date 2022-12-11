@@ -84,14 +84,14 @@ plt.rc('font',family='Linux Biolinum')
 # plt.rc('font', size=12, weight='bold') #controls default text size
 plt.rc('font', size=12) #controls default text size
 #plt.rc('axes', titlesize=15) #fontsize of the title
-plt.rc('axes', labelsize=14) #fontsize of the x and y labels
+plt.rc('axes', labelsize=12) #fontsize of the x and y labels
 plt.rc('xtick', labelsize=12) #fontsize of the x tick labels
 plt.rc('ytick', labelsize=12) #fontsize of the y tick labels
 # plt.rc('legend', fontsize=15) #fontsize of the legend
 
 
 #fig1 = plt.figure()
-fig1 = plt.figure(figsize=(cm2inch(14,10)))
+fig1 = plt.figure(figsize=(cm2inch(14,8)))
 
 # set up axes
 
@@ -117,7 +117,7 @@ plt.grid(axis='y',alpha=0.7)
 # ax1.set_xlim(lis[0], lis[-1])
 
 # ax1.set_ylim(0,13.5)
-plt.barh(range(len(Cout)),Cout)
+plt.barh(range(len(Cout)),Cout,color='royalblue')
 
 for index, value in enumerate(Cout):
     plt.text(value, index,
